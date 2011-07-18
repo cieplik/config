@@ -1,0 +1,6 @@
+#!/bin/bash
+
+HOST=$1
+
+xterm -T $HOST -e "ssh $HOST; if [ \$? != 0 ]; then read; fi"
+
