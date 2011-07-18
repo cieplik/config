@@ -1,0 +1,153 @@
+# Basic
+
+Mod4 3 :ExecCommand xterm -e "mplayer 'mms://stream.polskieradio.pl/program3'"
+Mod4 a :ExecCommand xset m 1/1 4
+Mod4 b :ExecCommand VirtualBox
+Mod4 c :ExecCommand ~/.dtella/dtella.py; linuxdcpp
+Mod4 d :ExecCommand stardict
+# Mod4 e :ExecCommand eclipse
+Mod4 f :ExecCommand iceweasel
+Mod4 g :ExecCommand gimp
+Mod4 j :ExecCommand LD_PRELOAD=/usr/lib/libgadu.so pidgin
+Mod4 k :ExecCommand /opt/skype/skype
+Mod4 m :ExecCommand sylpheed-claws-gtk2
+Mod4 n :ExecCommand pan
+Mod4 p :ExecCommand planner
+# Mod4 q :ExecCommand /opt/ioquake3/ioquake3
+Mod4 r :RootMenu
+Mod4 s :ExecCommand F=/tmp/screenshot.png; import -screen -frame $F; display $F
+Mod4 t :ExecCommand xterm
+Mod4 v :ExecCommand gvim
+Mod4 w :ExecCommand fbsetbg -r ~/.fluxbox/wallpapers/
+Mod4 x :ExecCommand gxmms2
+
+# Devel
+
+Mod4 49 d :ExecCommand dia
+Mod4 49 e :ExecCommand eclipse
+Mod4 49 m :ExecCommand meld
+Mod4 49 n :ExecCommand /opt/netbeans-6.9.1/bin/netbeans  # <W-`-n>
+
+# Terminal
+
+Mod4 1 m :ExecCommand xterm -e mc
+
+# Network
+
+Mod4 2 Mod4 2 :ExecCommand wicd-client -n
+
+# SSH
+
+Mod4 2 r :ExecCommand ~/.fluxbox/utils/xssh cieplik@rehab
+Mod4 2 s :ExecCommand ~/.fluxbox/utils/xssh dawid@solek -X
+
+Mod4 2 1 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.10
+Mod4 2 2 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.20
+Mod4 2 3 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.30
+Mod4 2 4 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.40
+Mod4 2 8 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.80
+                       
+
+Pause :ExecCommand sleep 1 && ( xtrlock.mine --preserve-cursor || xtrlock )
+None Print :ExecCommand import -w root /tmp/screenshot.jpg; display -resize 80% /tmp/screenshot.jpg
+
+# Workspace bindigs
+
+Mod4 Left  :PrevWorkspace
+Mod4 Right :NextWorkspace
+
+# Window bindings
+
+OnWindow Mod1 Mouse1 :MacroCmd {Raise} {Focus} {StartMoving}
+OnWindow Mod1 Mouse2 :MacroCmd {Raise} {Focus} {MaximizeWindow}
+OnWindow Mod1 Mouse3 :MacroCmd {Raise} {Focus} {StartResizing BottomRight}
+
+Control Mod1 Tab :If {Matches (Maximized=yes)} {MacroCmd {MaximizeWindow} {SendToNextHead} {MaximizeWindow}} {SendToNextHead}
+
+Control Mod1 Left  :PrevWindow {static groups} (workspace=[current])
+Control Mod1 Right :NextWindow {static groups} (workspace=[current])
+
+Control Mod1 Shift h :MoveLeft  100
+Control Mod1 Shift j :MoveDown  100
+Control Mod1 Shift k :MoveUp    100
+Control Mod1 Shift l :MoveRight 100
+
+Control Mod1 h :MoveTo 0 *
+Control Mod1 j :MoveTo * 0 Bottom
+Control Mod1 k :MoveTo * 0 Up
+Control Mod1 l :MoveTo 0 * Right
+
+Control Mod1 q            :Close
+Control Mod1 Shift Left   :MaximizeHorizontal
+Control Mod1 Shift Right  :MaximizeHorizontal
+Control Mod1 Up           :MaximizeWindow
+Control Mod1 Shift Up     :MaximizeVertical
+Control Mod1 Down         :MinimizeWindow
+Control Mod1 Shift Down   :MaximizeVertical
+Control Mod1 61           :ShowDesktop                 # <C-M-/>
+
+Control Mod1 21 :RaiseLayer 2                          # <C-M-+>
+Control Mod1 20 :LowerLayer 2                          # <C-M-->
+Control Mod1 0  :SetLayer Normal
+
+Control Mod1 59 :TakeToPrevWorkspace 1                 # <C-M-,>
+Control Mod1 60 :TakeToNextWorkspace 1                 # <C-M-.>
+
+# Tabs bindings
+
+Control Mod1 Home  :Attach (Title=[current]) (Workspace=[current])
+Control Mod1 End   :DetachClient
+
+Control Mod1 Prior :PrevTab
+Control Mod1 Next  :NextTab
+
+# XMMS2
+
+XF86AudioPlay :ExecCommand xmms2 toggleplay
+XF86AudioStop :ExecCommand xmms2 stop
+! XF86AudioPrev :ExecCommand xmms2 prev
+173 :ExecCommand xmms2 prev
+XF86AudioNext :ExecCommand xmms2 next
+
+# Alsa
+
+XF86AudioLowerVolume :ExecCommand amixer -c 0 set Master 2%-
+XF86AudioMute        :ExecCommand amixer -c 0 set Master toggle
+XF86AudioRaiseVolume :ExecCommand amixer -c 0 set Master 2%+
+
+# Dual Head
+
+# Compaq
+Mod4 F8 :ExecCommand OUTPUT=VGA1; xrandr --output $OUTPUT --newmode "1280x1024" 109.00  1280 1368 1496 1712 1024 1027 1034 1063 -hsync +vsync; xrandr --addmode $OUTPUT 1280x1024; xrandr --output $OUTPUT --right-of LVDS1; xrandr --output $OUTPUT --mode 1280x1024
+
+# Projector
+XF86Display :ExecCommand OUTPUT=VGA1; xrandr --output $OUTPUT --auto --right-of LVDS1
+
+
+# mouse actions added by fluxbox-update_configs
+OnTitlebar Mouse2 :StartTabbing
+
+# mouse actions added by fluxbox-update_configs
+OnTitlebar Double Mouse1 :Shade
+OnTitlebar Mouse3 :WindowMenu
+
+# mouse actions added by fluxbox-update_configs
+OnToolbar Mouse4 :PrevWorkspace
+OnToolbar Mouse5 :NextWorkspace
+
+# mouse actions added by fluxbox-update_configs
+OnDesktop Mouse1 :hideMenus
+OnDesktop Mouse2 :workspaceMenu
+OnDesktop Mouse3 :rootMenu
+OnDesktop Mouse4 :nextWorkspace
+OnDesktop Mouse5 :prevWorkspace
+
+# mouse actions added by fluxbox-update_configs
+OnTitlebar Mouse1 :MacroCmd {Focus} {Raise} {ActivateTab}
+
+# mouse actions added by fluxbox-update_configs
+OnTitlebar Move1 :StartMoving
+OnLeftGrip Move1 :StartResizing bottomleft
+OnRightGrip Move1 :StartResizing bottomright
+OnWindowBorder Move1 :StartMoving
+
