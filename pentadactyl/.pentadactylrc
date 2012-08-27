@@ -1,1 +1,9 @@
-/home/SG0209316/sg0209316/_pentadactylrc
+loadplugins '\.(js|penta)$'
+group user
+
+set guioptions+=B
+set guioptions-=s
+
+set complete+=suggestion
+
+" vim: set ft=pentadactyl:
