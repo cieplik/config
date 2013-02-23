@@ -6,4 +6,6 @@ set guioptions-=s
 
 set complete+=suggestion
 
+set smd=
+
 " vim: set ft=pentadactyl:
