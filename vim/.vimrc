@@ -1,3 +1,31 @@
+" vim: set expandtab foldmethod=marker:
+
+" Global settings {{{1
+
+scriptencoding utf-8
+
+
+" Reset all {{{1
+
+set listchars=
+
+
+" Case settings {{{1
+
+set ignorecase
+set smartcase
+
+
+" Line wrapping {{{1
+
+nmap <BS>     :silent set wrap!<CR>
+nmap <BS><BS> :silent windo set wrap!<CR>
+
+set listchars+=extends:»
+
+
+" Mess {{{1
+
 " Configuration file for vim
 set runtimepath=~/.vim,/usr/share/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vimcurrent,/usr/share/vim/vimfiles/after,/usr/share/vim/addons/after,~/.vim/after
 
@@ -28,6 +56,8 @@ if &term =~ "xterm-debian" || &term =~ "xterm-xfree86"
   set t_Sf=[3%dm
   set t_Sb=[4%dm
 endif
+
+set t_Co=256
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
@@ -103,7 +133,7 @@ let Tlist_Inc_Winwidth = 0
 map <F11> :TlistToggle<CR>
 
 " Kodowanie znakow w konsoli.
-set tenc=iso-8859-2
+set tenc=utf-8
 
 " Wylacz place-holders w Latex-Suite
 let g:Imap_UsePlaceHolders = 0
@@ -116,7 +146,7 @@ set incsearch
 set hlsearch
 
 " Podswietlanie tab, eol, space
-set lcs=tab:>-,trail:%,eol:$
+set lcs+=tab:>-,trail:%,eol:$
 map <F12> :set list! <CR>
 
 " Podswietlanie wiersza i kolumny
@@ -185,4 +215,15 @@ cnoreabbrev cdpstst cd /home/dawid/Projects/Studies/Thesis/solaris-crossbow/tex/
 
 cnoreabbrev cdv    cd /home/dawid/.VirtualBox<CR>
 cnoreabbrev cdvs   cd /home/dawid/.VirtualBox/Shared<CR>
+
+
+
+if &diff
+	set background=dark
+	colorscheme hybrid
+else
+	set background=dark
+	let g:solarized_bold=0
+	colorscheme solarized
+endif
 
