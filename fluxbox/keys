@@ -78,6 +78,8 @@ Control Mod1 k :MoveTo * 0 Up
 Control Mod1 l :MoveTo 0 * Right
 
 Control Mod1 q            :Close
+Control Mod1 Shift 21     :Resize  10  10
+Control Mod1 Shift 20     :Resize -10 -10
 Control Mod1 Shift Left   :MaximizeHorizontal
 Control Mod1 Shift Right  :MaximizeHorizontal
 Control Mod1 Up           :MacroCmd {If {Matches (class=Iceweasel) (name=Navigator) (role=browser)} {If {Matches (Maximized=yes)} {SetDecor 11111111111} {SetDecor 11111111110}} {}} {MaximizeWindow}

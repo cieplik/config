@@ -1,11 +1,12 @@
-"1.0b4.3 (created: 2011/01/05 17:55:12)
-
 loadplugins '\.(js|penta)$'
+group user
 
-set guioptions=BbCr
-set cpt+=suggestion
+set guioptions+=B
+set guioptions-=s
 
+set complete+=suggestion
+
+set smd=
 set ssli=
-
 
 " vim: set ft=pentadactyl:

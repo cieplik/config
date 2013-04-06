@@ -1,0 +1,6 @@
+[alias]
+ci = commit
+co = checkout
+dt = difftool
+mt = mergetool
+st = status
