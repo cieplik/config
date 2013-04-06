@@ -3,6 +3,9 @@
 loadplugins '\.(js|penta)$'
 
 set guioptions=BbCr
-set complete+=S
+set cpt+=suggestion
+
+set ssli=
+
 
 " vim: set ft=pentadactyl:

@@ -83,6 +83,8 @@ alias gfr='gf release '
 
 alias ll='ls -l'
 
+alias mplayer-cp='mplayer -subcp cp1250'
+
 
 alias cdhm='cd ~/mnt'
 alias cdhv='cd ~/.vim'
