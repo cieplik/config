@@ -1,6 +1,10 @@
 [alias]
-ci = commit
-co = checkout
-dt = difftool
-mt = mergetool
-st = status
+	ci = commit
+	co = checkout
+	dt = difftool
+	mt = mergetool
+	st = status
+
+[user]
+	name = cieplik
+	email = dcieplin@gmail.com
