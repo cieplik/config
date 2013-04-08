@@ -3,6 +3,7 @@
 " Global settings {{{1
 
 scriptencoding utf-8
+set encoding=utf-8
 
 
 " Reset all {{{1
@@ -182,7 +183,7 @@ let vimclojure#ParenRainbow=1           " Rainbow parentheses'!
 
 " .lvimrc
 
-function SetLocalOptions(fname)
+function! SetLocalOptions(fname)
 	let dirname = fnamemodify(a:fname, ":p:h")
 	while "/" != dirname
 		let lvimrc  = dirname . "/.lvimrc"
@@ -218,12 +219,12 @@ cnoreabbrev cdvs   cd /home/dawid/.VirtualBox/Shared<CR>
 
 
 
-if &diff
-	set background=dark
-	colorscheme hybrid
-else
-	set background=dark
-	let g:solarized_bold=0
-	colorscheme solarized
-endif
+" if &diff
+" 	set background=dark
+" 	colorscheme hybrid
+" else
+" 	set background=dark
+" 	let g:solarized_bold=0
+" 	colorscheme solarized
+" endif
 
