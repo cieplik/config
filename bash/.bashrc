@@ -123,3 +123,8 @@ alias cdml='cd /mnt/loop'
 alias cdmp='cd /mnt/pendrive'
 alias cdo='cd /opt'
 alias cdt='cd /tmp'
+
+xd()
+{
+	cd `/usr/bin/xd $*`
+}

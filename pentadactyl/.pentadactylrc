@@ -9,4 +9,6 @@ set complete+=suggestion
 set smd=
 set ssli=
 
+set passkeys=mail.google.com:/,?,j,k,n,p,u,*a,*n
+
 " vim: set ft=pentadactyl:
