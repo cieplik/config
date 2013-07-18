@@ -1,6 +1,14 @@
 " Global settings {{{1
 
 scriptencoding utf-8
+set encoding=utf-8
+
+set nocompatible
+
+
+" Filetyope {{{1
+
+filetype plugin on
 
 
 " Reset all {{{1
@@ -14,12 +22,27 @@ set ignorecase
 set smartcase
 
 
+" Searching {{{1
+
+set hlsearch
+set incsearch
+
+
 " Line wrapping {{{1
 
 nmap <BS>     :silent set wrap!<CR>
 nmap <BS><BS> :silent windo set wrap!<CR>
 
 set listchars+=extends:»
+
+
+" GUI {{{1
+
+if has( "gui_running" )
+	set guioptions-=m
+	set guioptions-=T
+	set guioptions-=e
+endif
 
 
 " Mess {{{1
@@ -29,7 +52,6 @@ set runtimepath=~/.vim,/usr/share/vim/addons,/usr/share/vim/vimfiles,/usr/share/
 
 " Normally we use vim-extensions. If you want true vi-compatibility
 " remove change the following statements
-set nocompatible	" Use Vim defaults instead of 100% vi compatibility
 set backspace=indent,eol,start	" more powerful backspacing
 
 " Now we set some defaults for the editor
@@ -61,51 +83,12 @@ set t_Co=256
 " line enables syntax highlighting by default.
 syntax on
 
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-" set background=dark
-
-if has("autocmd")
- " Enabled file type detection
- " Use the default filetype settings. If you also want to load indent files
- " to automatically do language-dependent indenting add 'indent' as well.
- filetype plugin on
-
-endif " has ("autocmd")
-
-" Some Debian-specific things
-if has("autocmd")
-  augroup filetype
-    au BufRead reportbug.*		set ft=mail
-    au BufRead reportbug-*		set ft=mail
-  augroup END
-endif
-
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 " if has("autocmd")
 "   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 "                    \| exe normal g'\"" | endif
 " endif
-
-" Set paper size from /etc/papersize if available (Debian-specific)
-if filereadable("/etc/papersize")
-  try
-    let s:shellbak = &shell
-    let &shell="/bin/sh"
-    let s:papersize = matchstr(system("cat /etc/papersize"), "\\p*")
-    let &shell=s:shellbak
-    if strlen(s:papersize)
-      let &printoptions = "paper:" . s:papersize
-    endif
-  catch /^Vim\%((\a\+)\)\=:E145/
-  endtry
-endif
-
-" Source a global configuration file if available
-"if filereadable("/etc/vim/vimrc.local")
-"  source /etc/vim/vimrc.local
-"endif
 
 set tabstop=2
 set shiftwidth=2
@@ -115,7 +98,6 @@ set showmatch		" Show matching brackets.
 " Uzupelnianie skladni C / C++ i binding do tworzenia tagow.
 set nocp
 " set completeopt=menu
-filetype plugin on
 map <M-F11> :!ctags -R --c++-kinds=+p --fields=+iaS --langmap=c++:+.tcc.hpp -h default,.tcc,.hpp --extra=+q .<CR>
 
 let OmniCpp_MayCompleteDot   = 0
@@ -139,10 +121,6 @@ let g:Imap_UsePlaceHolders = 0
 " Wylacz makra dla sekcji
 let g:Tex_SectionMaps = 0
 
-" Wyszukiwanie
-set incsearch
-set hlsearch
-
 " Podswietlanie tab, eol, space
 set lcs+=tab:>-,trail:%,eol:$
 map <F12> :set list! <CR>
@@ -151,11 +129,6 @@ map <F12> :set list! <CR>
 map <F4> :set cursorline! cursorcolumn! <CR>
 
 " Wylaczenie toolbara i menubara
-if has( "gui_running" )
-	set guioptions-=m
-	set guioptions-=T
-	set guioptions-=e
-endif
 
 " NERDTree
 
@@ -180,7 +153,7 @@ let vimclojure#ParenRainbow=1           " Rainbow parentheses'!
 
 " .lvimrc
 
-function SetLocalOptions(fname)
+function! SetLocalOptions(fname)
 	let dirname = fnamemodify(a:fname, ":p:h")
 	while "/" != dirname
 		let lvimrc  = dirname . "/.lvimrc"
@@ -216,14 +189,14 @@ cnoreabbrev cdvs   cd /home/dawid/.VirtualBox/Shared<CR>
 
 
 
-if &diff
-	set background=dark
-	colorscheme hybrid
-else
-	set background=dark
-	let g:solarized_bold=0
-	colorscheme solarized
-endif
+" if &diff
+" 	set background=dark
+" 	colorscheme hybrid
+" else
+" 	set background=dark
+" 	let g:solarized_bold=0
+" 	colorscheme solarized
+" endif
 
 
 " Pathogen {{{1

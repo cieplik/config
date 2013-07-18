@@ -5,26 +5,26 @@ Mod4 a :ExecCommand xset m 1/1 4
 Mod4 b :ExecCommand VirtualBox
 Mod4 c :ExecCommand ~/.dtella/dtella.py; linuxdcpp
 Mod4 d :ExecCommand stardict
-# Mod4 e :ExecCommand eclipse
 Mod4 f :ExecCommand iceweasel
 Mod4 g :ExecCommand gimp
 Mod4 j :ExecCommand LD_PRELOAD=/usr/lib/libgadu.so pidgin
-Mod4 k :ExecCommand /opt/skype/skype
-Mod4 m :ExecCommand sylpheed-claws-gtk2
+Mod4 k :ExecCommand export LD_PRELOAD=/usr/lib/i386-linux-gnu/libv4l/v4l1compat.so; /opt/skype/skype
+Mod4 m :ExecCommand claws-mail
 Mod4 n :ExecCommand pan
+Mod4 o :ExecCommand iceowl
 Mod4 p :ExecCommand planner
 # Mod4 q :ExecCommand /opt/ioquake3/ioquake3
 Mod4 r :RootMenu
 Mod4 s :ExecCommand F=/tmp/screenshot.png; import -screen -frame $F; display $F
-Mod4 t :ExecCommand xterm
+Mod4 t :ExecCommand xterm -e "tmux"
 Mod4 v :ExecCommand gvim
-Mod4 w :ExecCommand fbsetbg -r ~/.fluxbox/wallpapers/
-Mod4 x :ExecCommand gxmms2
+Mod4 w :ExecCommand xli -onroot ~/.fluxbox/wallpapers/01.png
+Mod4 x :ExecCommand gmpc
 
 # Devel
 
 Mod4 49 d :ExecCommand dia
-Mod4 49 e :ExecCommand eclipse
+Mod4 49 e :ExecCommand /opt/eclipse/eclipse
 Mod4 49 m :ExecCommand meld
 Mod4 49 n :ExecCommand /opt/netbeans-6.9.1/bin/netbeans  # <W-`-n>
 
@@ -34,7 +34,7 @@ Mod4 1 m :ExecCommand xterm -e mc
 
 # Network
 
-Mod4 2 Mod4 2 :ExecCommand wicd-client -n
+Mod4 2 Mod4 2 :ExecCommand xterm -e "LC_ALL=en_US wicd-curses"
 
 # SSH
 
@@ -82,7 +82,8 @@ Control Mod1 Shift 21     :Resize  10  10
 Control Mod1 Shift 20     :Resize -10 -10
 Control Mod1 Shift Left   :MaximizeHorizontal
 Control Mod1 Shift Right  :MaximizeHorizontal
-Control Mod1 Up           :MaximizeWindow
+Control Mod1 Up           :MacroCmd {If {Matches (class=Iceweasel) (name=Navigator) (role=browser)} {If {Matches (Maximized=yes)} {SetDecor 11111111111} {SetDecor 11111111110}} {}} {MaximizeWindow}
+
 Control Mod1 Shift Up     :MaximizeVertical
 Control Mod1 Down         :MinimizeWindow
 Control Mod1 Shift Down   :MaximizeVertical
@@ -105,11 +106,14 @@ Control Mod1 Next  :NextTab
 
 # XMMS2
 
-XF86AudioPlay :ExecCommand xmms2 toggleplay
-XF86AudioStop :ExecCommand xmms2 stop
-! XF86AudioPrev :ExecCommand xmms2 prev
-173 :ExecCommand xmms2 prev
-XF86AudioNext :ExecCommand xmms2 next
+XF86AudioPlay :ExecCommand mpc toggle
+XF86AudioStop :ExecCommand mpc stop
+
+173     :ExecCommand mpc prev
+Mod4 59 :ExecCommand mpc prev        # <W-,>
+
+XF86AudioNext :ExecCommand mpc next
+Mod4 60       :ExecCommand mpc next  # <W-.>
 
 # Alsa
 
@@ -130,7 +134,7 @@ XF86Display :ExecCommand OUTPUT=VGA1; xrandr --output $OUTPUT --auto --right-of 
 OnTitlebar Mouse2 :StartTabbing
 
 # mouse actions added by fluxbox-update_configs
-OnTitlebar Double Mouse1 :Shade
+OnTitlebar Double Mouse1 :MaximizeWindow
 OnTitlebar Mouse3 :WindowMenu
 
 # mouse actions added by fluxbox-update_configs

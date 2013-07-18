@@ -83,6 +83,8 @@ alias gfr='gf release '
 
 alias ll='ls -l'
 
+alias mplayer-cp='mplayer -subcp cp1250'
+
 
 alias cdhm='cd ~/mnt'
 alias cdhv='cd ~/.vim'
@@ -121,3 +123,8 @@ alias cdml='cd /mnt/loop'
 alias cdmp='cd /mnt/pendrive'
 alias cdo='cd /opt'
 alias cdt='cd /tmp'
+
+xd()
+{
+	cd `/usr/bin/xd $*`
+}
