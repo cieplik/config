@@ -1,5 +1,3 @@
-" vim: set expandtab foldmethod=marker:
-
 " Global settings {{{1
 
 scriptencoding utf-8
@@ -227,3 +225,13 @@ else
 	colorscheme solarized
 endif
 
+
+" Pathogen {{{1
+
+
+execute pathogen#infect()
+
+
+" Modeline {{{1
+
+" vim: set expandtab foldmethod=marker :

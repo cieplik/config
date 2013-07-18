@@ -1,6 +1,22 @@
+[difftool]
+  prompt = false
+
+[difftool "my-vimdiff"]
+  path = /usr/bin/vim
+  cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
+
+[diff]
+  tool = my-vimdiff
+
+[pager]
+  status = true
+
 [alias]
 ci = commit
 co = checkout
 dt = difftool
 mt = mergetool
 st = status
+
+
+# vim: set et:
