@@ -1,0 +1,15 @@
+# Basic
+
+Mod4 t :ExecCommand xterm -e tmux
+
+# SSH
+
+Mod4 2 r :ExecCommand ~/.fluxbox/utils/xssh cieplik@rehab
+Mod4 2 s :ExecCommand ~/.fluxbox/utils/xssh dawid@solek -X
+
+Mod4 2 1 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.10
+Mod4 2 2 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.20
+Mod4 2 3 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.30
+Mod4 2 4 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.40
+Mod4 2 8 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.80
+

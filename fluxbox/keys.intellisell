@@ -1,0 +1,10 @@
+# Basic
+
+Mod4 t :ExecCommand xterm 
+
+# SSH
+
+Mod4 2 1 :ExecCommand ~/.fluxbox/utils/xssh sg209316@atsedbld01b.dev.sabre.com
+Mod4 2 2 :ExecCommand ~/.fluxbox/utils/xssh sg209316@atsedbld02b.dev.sabre.com
+Mod4 2 3 :ExecCommand ~/.fluxbox/utils/xssh sg209316@atsedbld03b.dev.sabre.com
+

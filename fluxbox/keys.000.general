@@ -16,7 +16,6 @@ Mod4 p :ExecCommand planner
 # Mod4 q :ExecCommand /opt/ioquake3/ioquake3
 Mod4 r :RootMenu
 Mod4 s :ExecCommand F=/tmp/screenshot.png; import -screen -frame $F; display $F
-Mod4 t :ExecCommand xterm -e "tmux"
 Mod4 v :ExecCommand gvim
 Mod4 w :ExecCommand xli -onroot ~/.fluxbox/wallpapers/01.png
 Mod4 x :ExecCommand gmpc
@@ -35,18 +34,6 @@ Mod4 1 m :ExecCommand xterm -e mc
 # Network
 
 Mod4 2 Mod4 2 :ExecCommand xterm -e "LC_ALL=en_US wicd-curses"
-
-# SSH
-
-Mod4 2 r :ExecCommand ~/.fluxbox/utils/xssh cieplik@rehab
-Mod4 2 s :ExecCommand ~/.fluxbox/utils/xssh dawid@solek -X
-
-Mod4 2 1 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.10
-Mod4 2 2 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.20
-Mod4 2 3 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.30
-Mod4 2 4 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.40
-Mod4 2 8 :ExecCommand ~/.fluxbox/utils/xssh root@172.19.66.80
-                       
 
 Pause :ExecCommand sleep 1 && ( xtrlock.mine --preserve-cursor || xtrlock )
 None Print :ExecCommand import -w root /tmp/screenshot.jpg; display -resize 80% /tmp/screenshot.jpg
