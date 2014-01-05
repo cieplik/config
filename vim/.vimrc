@@ -102,10 +102,12 @@ let g:localvimrc_persistent=1
 " vim-submode {{{1
 let g:submode_keep_leaving_key = 1
 
-for s:direction in ['-', '+', '<', '>']
-  call submode#enter_with('window-resize', 'n', '', '<C-w>'.s:direction, '<C-w>'.s:direction)
-  call submode#map('window-resize', 'n', '', s:direction, '3<C-w>'.s:direction)
-endfor
+if exists("*submode::enter_with")
+  for s:direction in ['-', '+', '<', '>']
+    call submode#enter_with('window-resize', 'n', '', '<C-w>'.s:direction, '<C-w>'.s:direction)
+    call submode#map('window-resize', 'n', '', s:direction, '3<C-w>'.s:direction)
+  endfor
+endif
 
 
 " vim-airline {{{1
@@ -120,9 +122,6 @@ let g:ctrlp_max_files = 100000
 
 
 " Mess {{{1
-
-" Configuration file for vim
-set runtimepath+=~/.vim,/usr/share/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vimcurrent,/usr/share/vim/vimfiles/after,/usr/share/vim/addons/after,~/.vim/after
 
 " Normally we use vim-extensions. If you want true vi-compatibility
 " remove change the following statements
@@ -257,9 +256,11 @@ cnoreabbrev cdvs   cd /home/dawid/.VirtualBox/Shared<CR>
 
 
 if &diff
-	set background=dark
-	colorscheme hybrid
-else
+  if exists("##hybrid")
+    set background=dark
+    colorscheme hybrid
+  endif
+elseif exists("##solarized")
 	set background=dark
 	let g:solarized_bold=0
 	colorscheme solarized
