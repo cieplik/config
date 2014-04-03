@@ -6,7 +6,27 @@ set encoding=utf-8
 set nocompatible
 
 
-" Filetyope {{{1
+" Vundle {{{1
+
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Plugin 'gmarik/vundle'
+
+Plugin 'Align'
+Plugin 'tlib'
+Plugin 'Rip-Rip/clang_complete'
+Plugin 'ReplaceWithRegister'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'vimoutliner/vimoutliner'
+
+
+" Filetype {{{1
 
 filetype plugin on
 
@@ -48,7 +68,7 @@ endif
 " Mess {{{1
 
 " Configuration file for vim
-set runtimepath=~/.vim,/usr/share/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vimcurrent,/usr/share/vim/vimfiles/after,/usr/share/vim/addons/after,~/.vim/after
+set runtimepath+=~/.vim,/usr/share/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vimcurrent,/usr/share/vim/vimfiles/after,/usr/share/vim/addons/after,~/.vim/after
 
 " Normally we use vim-extensions. If you want true vi-compatibility
 " remove change the following statements
@@ -189,20 +209,22 @@ cnoreabbrev cdvs   cd /home/dawid/.VirtualBox/Shared<CR>
 
 
 
-" if &diff
-" 	set background=dark
-" 	colorscheme hybrid
-" else
-" 	set background=dark
-" 	let g:solarized_bold=0
-" 	colorscheme solarized
-" endif
+if &diff
+	set background=dark
+	colorscheme hybrid
+else
+	set background=dark
+	let g:solarized_bold=0
+	colorscheme solarized
+endif
+
+set et
 
 
 " Pathogen {{{1
 
 
-execute pathogen#infect()
+" execute pathogen#infect()
 
 
 " Modeline {{{1
