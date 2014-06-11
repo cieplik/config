@@ -124,6 +124,8 @@ alias cdmp='cd /mnt/pendrive'
 alias cdo='cd /opt'
 alias cdt='cd /tmp'
 
+. xmllint/alias.bash
+
 xd()
 {
 	cd `/usr/bin/xd $*`

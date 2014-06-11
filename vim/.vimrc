@@ -23,6 +23,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-surround'
 Plugin 'vimoutliner/vimoutliner'
 
 
@@ -34,6 +35,11 @@ filetype plugin on
 " Reset all {{{1
 
 set listchars=
+
+
+" Netrw {{{1
+
+" let g:netrw_keepdir=0
 
 
 " Case settings {{{1

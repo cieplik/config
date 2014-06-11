@@ -1,0 +1,3 @@
+set ignorecase smartcase
+set hlsearch
+set incsearch

@@ -12,15 +12,21 @@
   status = true
 
 [alias]
-	ci = commit
-	co = checkout
-	dt = difftool
-	mt = mergetool
-	st = status
+	ci     = commit
+	co     = checkout
+	dt     = difftool
+  fa     = fetch --all
+  ff     = merge --ff-only
+	mt     = mergetool
+  review = !git-review.sh
+	st     = status
+	ta     = log --oneline --decorate --graph --color --branches --remotes
+	tb     = log --oneline --decorate --graph --color --branches
+	tt     = log --oneline --decorate --graph --color
 
 [user]
-	name = cieplik
-	email = dcieplin@gmail.com
+	name = Dawid Cieplinski
+	email = dawid.cieplinski@sabre.com
 
 
 # vim: set et:
