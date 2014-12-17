@@ -19,6 +19,7 @@
   ff     = merge --ff-only
 	mt     = mergetool
   review = !git-review.sh
+  pr     = "!fetchpr() { git fetch $1 refs/pull-requests/$2/from; }; fetchpr"
 	st     = status
 	ta     = log --oneline --decorate --graph --color --branches --remotes
 	tb     = log --oneline --decorate --graph --color --branches

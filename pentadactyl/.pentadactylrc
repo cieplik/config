@@ -1,7 +1,7 @@
 loadplugins '\.(js|penta)$'
 group user
 
-set guioptions+=B
+set guioptions+=T
 set guioptions-=s
 
 set complete+=suggestion

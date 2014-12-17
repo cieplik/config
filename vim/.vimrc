@@ -22,10 +22,17 @@ Plugin 'ReplaceWithRegister'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'elzr/vim-json'
 Plugin 'garbas/vim-snipmate'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'vimoutliner/vimoutliner'
+
+" Color schemes
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'w0ng/vim-hybrid'
 
 
 " Filetype {{{1
@@ -63,6 +70,11 @@ nmap <BS><BS> :silent windo set wrap!<CR>
 set listchars+=extends:»
 
 
+" Column and Row highlighting {{{1
+
+set cursorline cursorcolumn
+
+
 " GUI {{{1
 
 if has( "gui_running" )
@@ -96,15 +108,6 @@ set mouse=
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-
-" We know xterm-debian is a color terminal
-if &term =~ "xterm-debian" || &term =~ "xterm-xfree86"
-  set t_Co=16
-  set t_Sf=[3%dm
-  set t_Sb=[4%dm
-endif
-
-set t_Co=256
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
@@ -226,12 +229,6 @@ else
 endif
 
 set et
-
-
-" Pathogen {{{1
-
-
-" execute pathogen#infect()
 
 
 " Modeline {{{1
