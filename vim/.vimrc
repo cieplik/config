@@ -30,6 +30,9 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'vimoutliner/vimoutliner'
 
+" Syntax
+Plugin 'tfnico/vim-gradle'
+
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'w0ng/vim-hybrid'

@@ -11,6 +11,9 @@
 [pager]
   status = true
 
+[push]
+	default = current
+
 [alias]
 	ci     = commit
 	co     = checkout
