@@ -16,12 +16,14 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 Plugin 'Align'
-Plugin 'tlib'
-Plugin 'Rip-Rip/clang_complete'
-Plugin 'ReplaceWithRegister'
 Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'ReplaceWithRegister'
+Plugin 'Rip-Rip/clang_complete'
+Plugin 'aklt/plantuml-syntax'
 Plugin 'elzr/vim-json'
+Plugin 'embear/vim-localvimrc'
 Plugin 'garbas/vim-snipmate'
+Plugin 'tlib'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
@@ -85,6 +87,11 @@ if has( "gui_running" )
 	set guioptions-=T
 	set guioptions-=e
 endif
+
+
+" localvimrc {{{1
+let g:localvimrc_sandbox=0
+let g:localvimrc_persistent=1
 
 
 " Mess {{{1
