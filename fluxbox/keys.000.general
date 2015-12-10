@@ -5,7 +5,7 @@ Mod4 a :ExecCommand xset m 1/1 4
 Mod4 b :ExecCommand VirtualBox
 Mod4 c :ExecCommand ~/.dtella/dtella.py; linuxdcpp
 Mod4 d :ExecCommand stardict
-Mod4 f :ExecCommand iceweasel
+Mod4 f :ExecCommand iceweasel || firefox
 Mod4 g :ExecCommand gimp
 Mod4 j :ExecCommand LD_PRELOAD=/usr/lib/libgadu.so pidgin
 Mod4 k :ExecCommand export LD_PRELOAD=/usr/lib/i386-linux-gnu/libv4l/v4l1compat.so; /opt/skype/skype
@@ -23,7 +23,7 @@ Mod4 x :ExecCommand gmpc
 # Devel
 
 Mod4 49 d :ExecCommand dia
-Mod4 49 e :ExecCommand /opt/eclipse/eclipse
+Mod4 49 e :ExecCommand $HIER/bin/eclipse || /opt/eclipse/eclipse
 Mod4 49 m :ExecCommand meld
 Mod4 49 n :ExecCommand /opt/netbeans-6.9.1/bin/netbeans  # <W-`-n>
 
@@ -35,7 +35,7 @@ Mod4 1 m :ExecCommand xterm -e mc
 
 Mod4 2 Mod4 2 :ExecCommand xterm -e "LC_ALL=en_US wicd-curses"
 
-Pause :ExecCommand sleep 1 && ( xtrlock.mine --preserve-cursor || xtrlock )
+Pause :ExecCommand sleep 1 && (xtrlock.mine --preserve-cursor || xtrlock || slock)
 None Print :ExecCommand import -w root /tmp/screenshot.jpg; display -resize 80% /tmp/screenshot.jpg
 
 # Workspace bindigs
@@ -70,7 +70,7 @@ Control Mod1 Shift 21     :Resize  10  10
 Control Mod1 Shift 20     :Resize -10 -10
 Control Mod1 Shift Left   :MaximizeHorizontal
 Control Mod1 Shift Right  :MaximizeHorizontal
-Control Mod1 Up           :MacroCmd {If {Matches (class=Iceweasel) (name=Navigator) (role=browser)} {If {Matches (Maximized=yes)} {SetDecor 11111111111} {SetDecor 11111111110}} {}} {MaximizeWindow}
+Control Mod1 Up           :MacroCmd {If {Or {Matches (class=Iceweasel) (name=Navigator) (role=browser)} {Matches (class=Firefox) (role=browser)}} {If {Matches (Maximized=yes)} {SetDecor 11111111111} {SetDecor 11111111110}} {}} {MaximizeWindow}
 
 Control Mod1 Shift Up     :MaximizeVertical
 Control Mod1 Down         :MinimizeWindow
