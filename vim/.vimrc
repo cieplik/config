@@ -23,6 +23,7 @@ Plugin 'aklt/plantuml-syntax'
 Plugin 'elzr/vim-json'
 Plugin 'embear/vim-localvimrc'
 Plugin 'garbas/vim-snipmate'
+Plugin 'kana/vim-submode'
 Plugin 'tlib'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-dispatch'
@@ -92,6 +93,14 @@ endif
 " localvimrc {{{1
 let g:localvimrc_sandbox=0
 let g:localvimrc_persistent=1
+
+" vim-submode {{{1
+let g:submode_keep_leaving_key = 1
+
+for s:direction in ['-', '+', '<', '>']
+  call submode#enter_with('window-resize', 'n', '', '<C-w>'.s:direction, '<C-w>'.s:direction)
+  call submode#map('window-resize', 'n', '', s:direction, '3<C-w>'.s:direction)
+endfor
 
 
 " Mess {{{1
