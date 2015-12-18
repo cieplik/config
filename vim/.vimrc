@@ -20,10 +20,13 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'ReplaceWithRegister'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'aklt/plantuml-syntax'
+Plugin 'bling/vim-airline'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elzr/vim-json'
 Plugin 'embear/vim-localvimrc'
 Plugin 'garbas/vim-snipmate'
 Plugin 'kana/vim-submode'
+Plugin 'othree/xml.vim'
 Plugin 'tlib'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-dispatch'
@@ -35,6 +38,8 @@ Plugin 'vimoutliner/vimoutliner'
 
 " Syntax
 Plugin 'tfnico/vim-gradle'
+Plugin 'tpope/vim-markdown'
+Plugin 'vim-scripts/scons.vim'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
@@ -103,6 +108,17 @@ for s:direction in ['-', '+', '<', '>']
 endfor
 
 
+" vim-airline {{{1
+let g:airline_theme     = 'monochrome'
+let g:airline_section_b = '%{airline#util#wrap(fnamemodify(getcwd(), ":t"),0)}'
+let g:airline_mode_map  = {'__': '-', 'n': 'N', 'i': 'I', 'R': 'R', 'c': 'C', 'v': 'V',
+                        \ 'V': 'V', '': 'V', 's': 'S', 'S': 'S', '': 'S'}
+
+
+" CtrlP {{{1
+let g:ctrlp_max_files = 100000
+
+
 " Mess {{{1
 
 " Configuration file for vim
@@ -154,6 +170,8 @@ let OmniCpp_MayCompleteArrow = 0
 let OmniCpp_MayCompleteScope = 0
 
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
+let maplocalleader = "\<Space>"
 
 
 " Tag List
