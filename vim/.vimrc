@@ -4,21 +4,22 @@ scriptencoding utf-8
 set encoding=utf-8
 
 set nocompatible
+set shell=/bin/bash
 
 
 " Vundle {{{1
 
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Align'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'ReplaceWithRegister'
-Plugin 'Rip-Rip/clang_complete'
+" Plugin 'Rip-Rip/clang_complete'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -45,10 +46,12 @@ Plugin 'vim-scripts/scons.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'w0ng/vim-hybrid'
 
+call vundle#end()
+
 
 " Filetype {{{1
 
-filetype plugin on
+filetype plugin indent on
 
 
 " Reset all {{{1
@@ -119,6 +122,13 @@ let g:airline_mode_map  = {'__': '-', 'n': 'N', 'i': 'I', 'R': 'R', 'c': 'C', 'v
 
 " CtrlP {{{1
 let g:ctrlp_max_files = 100000
+
+
+" Colorscheme {{{1
+
+silent! colorscheme solarized | let g:solarized_bold=0 | set background=dark
+
+" TODO Use lucius-white for light bgs
 
 
 " Mess {{{1
@@ -254,21 +264,7 @@ cnoreabbrev cdv    cd /home/dawid/.VirtualBox<CR>
 cnoreabbrev cdvs   cd /home/dawid/.VirtualBox/Shared<CR>
 
 
-
-if &diff
-  if exists("##hybrid")
-    set background=dark
-    colorscheme hybrid
-  endif
-elseif exists("##solarized")
-	set background=dark
-	let g:solarized_bold=0
-	colorscheme solarized
-endif
-
 set et
 
-
-" Modeline {{{1
 
 " vim: set expandtab foldmethod=marker :
