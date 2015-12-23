@@ -1,8 +1,11 @@
+[core]
+  notesRef = refs/notes/hg
+
 [difftool]
   prompt = false
 
 [difftool "my-vimdiff"]
-  path = /usr/bin/vim
+  path = vim
   cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
 
 [diff]
@@ -12,7 +15,7 @@
   status = true
 
 [push]
-	default = current
+	default = upstream
 
 [alias]
 	ci     = commit
@@ -29,8 +32,8 @@
 	tt     = log --oneline --decorate --graph --color
 
 [user]
-	name = Dawid Cieplinski
-	email = dawid.cieplinski@sabre.com
+	name = David Cieplinski
+	email = davidc@imagine-sw.com
 
 
 # vim: set et:
