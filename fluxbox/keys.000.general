@@ -36,7 +36,7 @@ Mod4 1 m :ExecCommand xterm -e mc
 
 Mod4 2 Mod4 2 :ExecCommand xterm -e "LC_ALL=en_US wicd-curses"
 
-Pause :ExecCommand sleep 1 && (xtrlock.mine --preserve-cursor || xtrlock || slock)
+Pause :ExecCommand sleep 1 && (xtrlock.mine --preserve-cursor || xtrlock || xscreensaver-command -lock || slock)
 None Print :ExecCommand import -w root /tmp/screenshot.jpg; display -resize 80% /tmp/screenshot.jpg
 
 # Workspace bindigs

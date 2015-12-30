@@ -1,4 +1,6 @@
 XTerm*faceName:  Terminus:style=Regular:size=10
 XTerm*utf8:      1
+XTerm*ScrollBar: false
+XTerm*boldMode:  false
 
 ! vim: set et:
