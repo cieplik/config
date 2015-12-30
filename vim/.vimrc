@@ -126,9 +126,7 @@ let g:ctrlp_max_files = 100000
 
 " Colorscheme {{{1
 
-silent! colorscheme solarized | let g:solarized_bold=0 | set background=dark
-
-" TODO Use lucius-white for light bgs
+set rtp+=~/.vim/colorscheme
 
 
 " Mess {{{1
