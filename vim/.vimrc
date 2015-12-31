@@ -44,7 +44,7 @@ Plugin 'vim-scripts/scons.vim'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'w0ng/vim-hybrid'
+Plugin 'jonathanfilip/vim-lucius'
 
 call vundle#end()
 
@@ -105,12 +105,10 @@ let g:localvimrc_persistent=1
 " vim-submode {{{1
 let g:submode_keep_leaving_key = 1
 
-if exists("*submode::enter_with")
-  for s:direction in ['-', '+', '<', '>']
-    call submode#enter_with('window-resize', 'n', '', '<C-w>'.s:direction, '<C-w>'.s:direction)
-    call submode#map('window-resize', 'n', '', s:direction, '3<C-w>'.s:direction)
-  endfor
-endif
+for s:direction in ['-', '+', '<', '>']
+  silent!   call submode#enter_with('window-resize', 'n', '', '<C-w>'.s:direction, '<C-w>'.s:direction)
+        \ | call submode#map('window-resize', 'n', '', s:direction, '3<C-w>'.s:direction)
+endfor
 
 
 " vim-airline {{{1
