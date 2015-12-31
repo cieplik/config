@@ -1,6 +1,6 @@
 # Basic
 
-Mod4 t :ExecCommand xterm -e tmux
+Mod4 t :ExecCommand xterm -e tmux -2
 
 # SSH
 
