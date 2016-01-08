@@ -6,8 +6,8 @@ set guioptions-=s
 
 set complete+=suggestion
 
-set smd=
-set ssli=
+set showmode=
+set showstatuslinks=
 
 set passkeys=mail.google.com:/,?,j,k,n,p,u,*a,*n
 
