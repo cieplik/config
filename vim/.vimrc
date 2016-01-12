@@ -188,6 +188,12 @@ let g:Tex_SectionMaps      = 0
 let g:vim_json_syntax_conceal = 0
 
 
+" clang-complete {{{1
+
+let g:clang_use_library   = 1
+let g:clang_complete_auto = 0
+
+
 " Colorscheme {{{1
 
 set rtp+=~/.vim/colorscheme
