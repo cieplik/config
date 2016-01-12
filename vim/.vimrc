@@ -32,6 +32,7 @@ Plugin 'elzr/vim-json'
 Plugin 'embear/vim-localvimrc'
 Plugin 'garbas/vim-snipmate'
 Plugin 'kana/vim-submode'
+Plugin 'matze/vim-ini-fold'
 Plugin 'othree/xml.vim'
 Plugin 'tlib'
 Plugin 'tpope/vim-abolish'
@@ -90,11 +91,16 @@ set textwidth=0
 
 set backspace=indent,eol,start
 
-" Completion {{{1
+" Completion, hints, help {{{1
 
 let OmniCpp_MayCompleteDot   = 0
 let OmniCpp_MayCompleteArrow = 0
 let OmniCpp_MayCompleteScope = 0
+
+set keywordprg=:help
+
+set wildmode=full
+set wildmenu
 
 
 " Case settings {{{1
@@ -174,6 +180,12 @@ let g:ctrlp_max_files = 100000
 
 let g:Imap_UsePlaceHolders = 0
 let g:Tex_SectionMaps      = 0
+
+
+" vim-json {{{1
+
+" Don't conceal quotes
+let g:vim_json_syntax_conceal = 0
 
 
 " Colorscheme {{{1
