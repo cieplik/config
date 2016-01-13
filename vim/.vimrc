@@ -182,6 +182,11 @@ let g:Imap_UsePlaceHolders = 0
 let g:Tex_SectionMaps      = 0
 
 
+" ini-fold {{{1
+
+let g:ini_fold_enabled_filetypes = {'gitconfig': 0, 'dosini': 1}
+
+
 " vim-json {{{1
 
 " Don't conceal quotes
