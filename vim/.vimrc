@@ -17,42 +17,45 @@ let maplocalleader = "\<Space>"
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+try
+  call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
+  Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'Align'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'ReplaceWithRegister'
-" Plugin 'Rip-Rip/clang_complete'
-Plugin 'aklt/plantuml-syntax'
-Plugin 'bling/vim-airline'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'elzr/vim-json'
-Plugin 'embear/vim-localvimrc'
-Plugin 'garbas/vim-snipmate'
-Plugin 'kana/vim-submode'
-Plugin 'matze/vim-ini-fold'
-Plugin 'othree/xml.vim'
-Plugin 'tlib'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'vimoutliner/vimoutliner'
+  Plugin 'Align'
+  Plugin 'MarcWeber/vim-addon-mw-utils'
+  Plugin 'ReplaceWithRegister'
+  " Plugin 'Rip-Rip/clang_complete'
+  Plugin 'aklt/plantuml-syntax'
+  Plugin 'bling/vim-airline'
+  Plugin 'ctrlpvim/ctrlp.vim'
+  Plugin 'elzr/vim-json'
+  Plugin 'embear/vim-localvimrc'
+  Plugin 'garbas/vim-snipmate'
+  Plugin 'kana/vim-submode'
+  Plugin 'matze/vim-ini-fold'
+  Plugin 'othree/xml.vim'
+  Plugin 'tlib'
+  Plugin 'tpope/vim-abolish'
+  Plugin 'tpope/vim-dispatch'
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-git'
+  Plugin 'tpope/vim-repeat'
+  Plugin 'tpope/vim-surround'
+  Plugin 'vimoutliner/vimoutliner'
 
-" Syntax
-Plugin 'tfnico/vim-gradle'
-Plugin 'tpope/vim-markdown'
-Plugin 'vim-scripts/scons.vim'
+  " Syntax
+  Plugin 'tfnico/vim-gradle'
+  Plugin 'tpope/vim-markdown'
+  Plugin 'vim-scripts/scons.vim'
 
-" Color schemes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jonathanfilip/vim-lucius'
+  " Color schemes
+  Plugin 'altercation/vim-colors-solarized'
+  Plugin 'jonathanfilip/vim-lucius'
 
-call vundle#end()
+  call vundle#end()
+catch /.*/
+endtry
 
 
 " Filetype {{{1
