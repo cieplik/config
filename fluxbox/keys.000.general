@@ -24,7 +24,7 @@ Mod4 x :ExecCommand gmpc
 # Devel
 
 Mod4 49 d :ExecCommand dia
-Mod4 49 e :ExecCommand $HIER/bin/eclipse || /opt/eclipse/eclipse
+Mod4 49 e :ExecCommand eclipse
 Mod4 49 m :ExecCommand meld
 Mod4 49 n :ExecCommand /opt/netbeans-6.9.1/bin/netbeans  # <W-`-n>
 
