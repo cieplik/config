@@ -25,7 +25,7 @@ try
   Plugin 'Align'
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'ReplaceWithRegister'
-  " Plugin 'Rip-Rip/clang_complete'
+  Plugin 'Valloric/YouCompleteMe'
   Plugin 'aklt/plantuml-syntax'
   Plugin 'bling/vim-airline'
   Plugin 'ctrlpvim/ctrlp.vim'
@@ -33,6 +33,7 @@ try
   Plugin 'embear/vim-localvimrc'
   Plugin 'garbas/vim-snipmate'
   Plugin 'kana/vim-submode'
+  Plugin 'lyuts/vim-rtags'
   Plugin 'matze/vim-ini-fold'
   Plugin 'othree/xml.vim'
   Plugin 'tlib'
@@ -196,10 +197,27 @@ let g:ini_fold_enabled_filetypes = {'gitconfig': 0, 'dosini': 1}
 let g:vim_json_syntax_conceal = 0
 
 
-" clang-complete {{{1
+" YouCompleteMe, vim-rtags {{{1
 
-let g:clang_use_library   = 1
-let g:clang_complete_auto = 0
+nnoremap <LocalLeader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <LocalLeader>D :YcmCompleter GoToDefinition<CR>
+
+
+let g:rtagsUseDefaultMappings = 0
+
+noremap <LocalLeader>i :call rtags#SymbolInfo()<CR>
+noremap <LocalLeader>j :call rtags#JumpTo()<CR>
+noremap <LocalLeader>S :call rtags#JumpTo(" ")<CR>
+noremap <LocalLeader>V :call rtags#JumpTo("vert")<CR>
+noremap <LocalLeader>T :call rtags#JumpTo("tab")<CR>
+noremap <LocalLeader>p :call rtags#JumpToParent()<CR>
+noremap <LocalLeader>f :call rtags#FindRefs()<CR>
+noremap <LocalLeader>n :call rtags#FindRefsByName(input("Pattern? ", "", "customlist,rtags#CompleteSymbols"))<CR>
+noremap <LocalLeader>s :call rtags#FindSymbols(input("Pattern? ", "", "customlist,rtags#CompleteSymbols"))<CR>
+noremap <LocalLeader>r :call rtags#ReindexFile()<CR>
+noremap <LocalLeader>l :call rtags#ProjectList()<CR>
+noremap <LocalLeader>w :call rtags#RenameSymbolUnderCursor()<CR>
+noremap <LocalLeader>v :call rtags#FindVirtuals()<CR>
 
 
 " Colorscheme {{{1
