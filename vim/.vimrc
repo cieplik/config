@@ -201,9 +201,12 @@ let g:vim_json_syntax_conceal = 0
 " YouCompleteMe, vim-rtags {{{1
 
 let g:ycm_key_list_select_completion = []
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_enable_diagnostic_highlighting = 1
 
 nnoremap <LocalLeader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <LocalLeader>D :YcmCompleter GoToDefinition<CR>
+nnoremap <LocalLeader>/ :YcmDiags<CR>
 
 
 let g:rtagsUseDefaultMappings = 0
