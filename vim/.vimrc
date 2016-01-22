@@ -25,13 +25,14 @@ try
   Plugin 'Align'
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'ReplaceWithRegister'
+  Plugin 'SirVer/ultisnips'
   Plugin 'Valloric/YouCompleteMe'
   Plugin 'aklt/plantuml-syntax'
   Plugin 'bling/vim-airline'
   Plugin 'ctrlpvim/ctrlp.vim'
   Plugin 'elzr/vim-json'
   Plugin 'embear/vim-localvimrc'
-  Plugin 'garbas/vim-snipmate'
+  Plugin 'honza/vim-snippets'
   Plugin 'kana/vim-submode'
   Plugin 'lyuts/vim-rtags'
   Plugin 'matze/vim-ini-fold'
@@ -198,6 +199,8 @@ let g:vim_json_syntax_conceal = 0
 
 
 " YouCompleteMe, vim-rtags {{{1
+
+let g:ycm_key_list_select_completion = []
 
 nnoremap <LocalLeader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <LocalLeader>D :YcmCompleter GoToDefinition<CR>
