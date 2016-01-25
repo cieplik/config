@@ -208,6 +208,8 @@ nnoremap <LocalLeader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <LocalLeader>D :YcmCompleter GoToDefinition<CR>
 nnoremap <LocalLeader>/ :YcmDiags<CR>
 
+highlight link YcmErrorSection Error
+
 
 let g:rtagsUseDefaultMappings = 0
 
@@ -218,8 +220,8 @@ noremap <LocalLeader>V :call rtags#JumpTo("vert")<CR>
 noremap <LocalLeader>T :call rtags#JumpTo("tab")<CR>
 noremap <LocalLeader>p :call rtags#JumpToParent()<CR>
 noremap <LocalLeader>f :call rtags#FindRefs()<CR>
-noremap <LocalLeader>n :call rtags#FindRefsByName(input("Pattern? ", "", "customlist,rtags#CompleteSymbols"))<CR>
-noremap <LocalLeader>s :call rtags#FindSymbols(input("Pattern? ", "", "customlist,rtags#CompleteSymbols"))<CR>
+noremap <LocalLeader>n :call rtags#FindRefsByName(input("(find refs) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
+noremap <LocalLeader>s :call rtags#FindSymbols(input("(find symbols) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
 noremap <LocalLeader>r :call rtags#ReindexFile()<CR>
 noremap <LocalLeader>l :call rtags#ProjectList()<CR>
 noremap <LocalLeader>w :call rtags#RenameSymbolUnderCursor()<CR>

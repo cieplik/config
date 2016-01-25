@@ -2,7 +2,7 @@ if ! exists('*s:jumpto')
   function s:jumpto(place, force)
     let l:place = s:jumpto_places[a:place]
     for l:way in l:place
-      let l:destfile = substitute(expand('%:p:r'), '\v(Fwd|_fwd)', '', 'g') . l:way.to
+      let l:destfile = substitute(expand('%:p:r'), '\C\v(Fwd|_fwd)', '', 'g') . l:way.to
 
       if exists('l:way.df')
         let l:destfile = substitute(l:destfile, l:way.df, l:way.dt, 'g')
