@@ -5,7 +5,7 @@ Mod4 a :ExecCommand xset m 1/1 4
 Mod4 b :ExecCommand VirtualBox
 # Mod4 c :ExecCommand ~/.dtella/dtella.py; linuxdcpp
 Mod4 c :ExecCommand google-chrome || chromium
-Mod4 d :ExecCommand stardict
+Mod4 d :ExecCommand goldendict
 Mod4 f :ExecCommand iceweasel || firefox
 Mod4 g :ExecCommand gimp
 Mod4 j :ExecCommand LD_PRELOAD=/usr/lib/libgadu.so pidgin
