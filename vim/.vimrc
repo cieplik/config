@@ -37,6 +37,7 @@ try
   Plugin 'lyuts/vim-rtags'
   Plugin 'matze/vim-ini-fold'
   Plugin 'othree/xml.vim'
+  Plugin 'rking/ag.vim'
   Plugin 'tlib'
   Plugin 'tpope/vim-abolish'
   Plugin 'tpope/vim-dispatch'
@@ -179,6 +180,10 @@ endfor
 
 " CtrlP {{{1
 let g:ctrlp_max_files = 100000
+
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 
 " LaTeX-Suite {{{1
