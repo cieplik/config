@@ -227,10 +227,18 @@ noremap <LocalLeader>p :call rtags#JumpToParent()<CR>
 noremap <LocalLeader>f :call rtags#FindRefs()<CR>
 noremap <LocalLeader>n :call rtags#FindRefsByName(input("(find refs) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
 noremap <LocalLeader>s :call rtags#FindSymbols(input("(find symbols) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
+noremap <LocalLeader>t :call FindClassTree()<CR>
 noremap <LocalLeader>r :call rtags#ReindexFile()<CR>
 noremap <LocalLeader>l :call rtags#ProjectList()<CR>
 noremap <LocalLeader>w :call rtags#RenameSymbolUnderCursor()<CR>
 noremap <LocalLeader>v :call rtags#FindVirtuals()<CR>
+
+function! FindClassTree()
+    let lines = rtags#ExecuteRC({'-class-hierarchy': rtags#getCurrentLocation()})
+    call filter(lines, 'v:val !~ "classes:"')
+    call map(lines, 'substitute(v:val, ''\v[^\/]+'', "", "")')
+    call rtags#DisplayResults(lines)
+endfunction
 
 
 " Colorscheme {{{1
