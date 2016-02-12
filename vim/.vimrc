@@ -39,6 +39,7 @@ try
   Plugin 'matze/vim-ini-fold'
   Plugin 'othree/xml.vim'
   Plugin 'rking/ag.vim'
+  Plugin 'terryma/vim-multiple-cursors'
   Plugin 'tlib'
   Plugin 'tpope/vim-abolish'
   Plugin 'tpope/vim-dispatch'
