@@ -21,6 +21,7 @@ if ! exists('*s:jumpto')
   \ {
   \   'c': [{'to': '.c'},
   \         {'to': '.cc'},
+  \         {'to': '.cpp'},
   \         {'to': '.C', 'df': 'include', 'dt': 'src'}],
   \   'h': [{'to': '.h'}]
   \ }
