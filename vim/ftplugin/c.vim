@@ -19,9 +19,9 @@ if ! exists('*s:jumpto')
 
   let s:jumpto_places =
   \ {
-  \   'c': [{'to': '.c'},
+  \   'c': [{'to': '.cpp'},
+  \         {'to': '.c'},
   \         {'to': '.cc'},
-  \         {'to': '.cpp'},
   \         {'to': '.C', 'df': 'include', 'dt': 'src'}],
   \   'h': [{'to': '.h'}]
   \ }
@@ -34,3 +34,10 @@ nnoremap <buffer> <LocalLeader>H :call <SID>jumpto('h', 1)<CR>
 " nnoremap <Leader>f :call Jumpto(g:jumpto_places['f'], 0)<CR>
 " nnoremap <Leader>F :call Jumpto(g:jumpto_places['f'], 1)<CR>
 
+
+" clang-format {{{1
+
+map <buffer> = <Plug>(operator-clang-format)
+
+
+" vim: set expandtab foldmethod=marker :

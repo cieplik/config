@@ -34,10 +34,12 @@ try
   Plugin 'elzr/vim-json'
   Plugin 'embear/vim-localvimrc'
   Plugin 'honza/vim-snippets'
+  Plugin 'kana/vim-operator-user'
   Plugin 'kana/vim-submode'
   Plugin 'lyuts/vim-rtags'
   Plugin 'matze/vim-ini-fold'
   Plugin 'othree/xml.vim'
+  Plugin 'rhysd/vim-clang-format'
   Plugin 'rking/ag.vim'
   Plugin 'terryma/vim-multiple-cursors'
   Plugin 'tlib'
@@ -64,7 +66,7 @@ endtry
 
 " Filetype {{{1
 
-filetype plugin indent on
+filetype plugin on
 
 
 " Reset all {{{1
