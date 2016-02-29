@@ -5,7 +5,7 @@ function addToPath
   local P=$1; shift
 
   for DIR in "$@"; do
-    [ -e $DIR ] && [[ :"${!P}": != *:"$DIR":* ]] && eval "$P=$DIR${!P:+:${!P}}"
+    [ -e $DIR ] && [[ :"${!P}": != *:"$DIR":* ]] && eval "$P=${!P:+${!P}:}$DIR"
   done
 }
 
@@ -19,7 +19,9 @@ for F in $HIERS/[!.]*; do
   addToPath PYTHONPATH      $F/lib/python2.7/site-packages
 done
 
-export PATH LD_LIBRARY_PATH PYTHONPATH MANPATH
+addToPath MANPATH /usr/{,share/}man
+
+export PATH LD_LIBRARY_PATH PYTHONPATH MANPATH PKG_CONFIG_PATH
 
 set -o vi
 export EDITOR=vim
