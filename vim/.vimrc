@@ -49,6 +49,10 @@ try
   Plugin 'tpope/vim-repeat'
   Plugin 'tpope/vim-surround'
   Plugin 'vimoutliner/vimoutliner'
+  Plugin 'will133/vim-dirdiff'
+
+  Plugin 'cieplik/vim-kythe'
+  Plugin 'mattn/webapi-vim'
 
   " Syntax
   Plugin 'tfnico/vim-gradle'
@@ -181,8 +185,15 @@ for s:direction in ['-', '+', '<', '>']
 endfor
 
 
+" Ag {{{1
+
+command! -bang -nargs=* -complete=file Agg
+       \ call ag#Ag('grep<bang>', <q-args> . " " . system('git rev-parse --show-toplevel'))
+
+
 " CtrlP {{{1
-let g:ctrlp_max_files = 100000
+let g:ctrlp_max_files     = 100000
+let g:ctrlp_switch_buffer = 'et'
 
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -212,6 +223,7 @@ let g:ycm_key_list_select_completion = []
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 1
 
+nnoremap <LocalLeader>3 :YcmCompleter ClearCompilationFlagCache<CR>
 nnoremap <LocalLeader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <LocalLeader>D :YcmCompleter GoToDefinition<CR>
 nnoremap <LocalLeader>/ :YcmDiags<CR>
@@ -252,11 +264,6 @@ set rtp+=~/.vim/colorscheme
 " Machine-local runtime {{{1
 
 set rtp+=~/.vim/local
-
-
-" Mess {{{1
-
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 
 " vim: set expandtab foldmethod=marker :
