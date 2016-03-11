@@ -9,6 +9,7 @@ set shell=/bin/bash
 
 set mouse=
 
+let mapleader = ","
 let maplocalleader = "\<Space>"
 
 
@@ -49,6 +50,7 @@ try
   Plugin 'tpope/vim-repeat'
   Plugin 'tpope/vim-surround'
   Plugin 'vimoutliner/vimoutliner'
+  Plugin 'qingxbl/Mark--Karkat'
   Plugin 'will133/vim-dirdiff'
 
   Plugin 'cieplik/vim-kythe'
@@ -265,5 +267,6 @@ set rtp+=~/.vim/colorscheme
 
 set rtp+=~/.vim/local
 
+" }}}1
 
 " vim: set expandtab foldmethod=marker :
