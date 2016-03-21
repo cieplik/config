@@ -3,10 +3,15 @@ priority -25
 snippet ns "namespace .. (namespace)"
 namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`}
 {
-	${VISUAL}${0}
-}  // namespace $1
+}  // `!p snip.rv = "namespace " + t[1] if t[1] else "unnamed namespace"`
 endsnippet
 
 snippet once "#pragma once"
 #pragma once
+endsnippet
+
+snippet st "struct"
+struct ${1}
+{
+};
 endsnippet
