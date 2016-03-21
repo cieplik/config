@@ -29,6 +29,7 @@ try
   Plugin 'SirVer/ultisnips'
   Plugin 'Valloric/YouCompleteMe'
   Plugin 'aklt/plantuml-syntax'
+  Plugin 'bkad/CamelCaseMotion'
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
   Plugin 'ctrlpvim/ctrlp.vim'
@@ -176,6 +177,10 @@ endif
 " localvimrc {{{1
 let g:localvimrc_sandbox=0
 let g:localvimrc_persistent=1
+
+
+" CamelCaseMotion {{{1
+call camelcasemotion#CreateMotionMappings('<leader>')
 
 
 " vim-submode {{{1
