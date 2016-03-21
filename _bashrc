@@ -11,6 +11,9 @@ function addToPath
 
 export HIERS=$HOME/hiers
 
+old_PATH=$PATH
+PATH=
+
 for F in $HIERS/[!.]*; do
   addToPath PATH            $F/bin
   addToPath LD_LIBRARY_PATH $F/{,usr/}lib{,64}
@@ -18,6 +21,8 @@ for F in $HIERS/[!.]*; do
   addToPath MANPATH         $F/{,share/}man
   addToPath PYTHONPATH      $F/lib/python2.7/site-packages
 done
+
+addToPath PATH ${old_PATH//:/ }
 
 addToPath MANPATH /usr/{,share/}man
 
