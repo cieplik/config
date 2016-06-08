@@ -51,6 +51,7 @@ try
   Plugin 'tpope/vim-repeat'
   Plugin 'tpope/vim-surround'
   Plugin 'vimoutliner/vimoutliner'
+  Plugin 'vim-scripts/dbext.vim'
   Plugin 'qingxbl/Mark--Karkat'
   Plugin 'will133/vim-dirdiff'
 
@@ -143,6 +144,8 @@ set listchars+=extends:»
 
 syntax on
 set showmatch  " show matching brackets
+
+let g:mwDefaultHighlightingPalette = 'maximum'  " MARK setting
 
 map <F12> :set list! <CR>
 set listchars+=tab:>-,trail:%,eol:$
@@ -241,10 +244,10 @@ highlight link YcmErrorSection Error
 let g:rtagsUseDefaultMappings = 0
 
 noremap <LocalLeader>i :call rtags#SymbolInfo()<CR>
-noremap <LocalLeader>j :call rtags#JumpTo()<CR>
-noremap <LocalLeader>S :call rtags#JumpTo(" ")<CR>
-noremap <LocalLeader>V :call rtags#JumpTo("vert")<CR>
-noremap <LocalLeader>T :call rtags#JumpTo("tab")<CR>
+noremap <LocalLeader>j :call rtags#JumpTo(g:SAME_WINDOW)<CR>
+noremap <LocalLeader>S :call rtags#JumpTo(g:H_SPLIT)<CR>
+noremap <LocalLeader>V :call rtags#JumpTo(g:V_SPLIT)<CR>
+noremap <LocalLeader>T :call rtags#JumpTo(g:NEW_TAB)<CR>
 noremap <LocalLeader>p :call rtags#JumpToParent()<CR>
 noremap <LocalLeader>f :call rtags#FindRefs()<CR>
 noremap <LocalLeader>n :call rtags#FindRefsByName(input("(find refs) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
