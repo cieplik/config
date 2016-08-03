@@ -29,6 +29,7 @@
 	st     = status
 	ta     = log --oneline --decorate --graph --color --branches --remotes
 	tb     = log --oneline --decorate --graph --color --branches
+	ts     = log --oneline --decorate --graph --color --branches --remotes --simplify-by-decoration
 	tt     = log --oneline --decorate --graph --color
 
 [user]
