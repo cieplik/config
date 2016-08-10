@@ -41,6 +41,8 @@ try
   Plugin 'lyuts/vim-rtags'
   Plugin 'matze/vim-ini-fold'
   Plugin 'othree/xml.vim'
+  Plugin 'rhysd/clever-f.vim'
+  Plugin 'rhysd/committia.vim'
   Plugin 'rhysd/vim-clang-format'
   Plugin 'rking/ag.vim'
   Plugin 'terryma/vim-multiple-cursors'
@@ -54,6 +56,7 @@ try
   Plugin 'vim-scripts/dbext.vim'
   Plugin 'qingxbl/Mark--Karkat'
   Plugin 'will133/vim-dirdiff'
+  Plugin 'yssl/QFEnter'
 
   Plugin 'cieplik/vim-kythe'
   Plugin 'mattn/webapi-vim'
@@ -208,6 +211,12 @@ let g:ctrlp_switch_buffer = 'et'
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
+
+" QFEnter {{{1
+let g:qfenter_vopen_map = ['<C-v>']
+let g:qfenter_hopen_map = ['<C-CR>', '<C-s>', '<C-x>']
+let g:qfenter_topen_map = ['<C-t>']
 
 
 " LaTeX-Suite {{{1
