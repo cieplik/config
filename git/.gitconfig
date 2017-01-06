@@ -31,6 +31,7 @@
 	tb     = log --oneline --decorate --graph --color --branches
 	ts     = log --oneline --decorate --graph --color --branches --remotes --simplify-by-decoration
 	tt     = log --oneline --decorate --graph --color
+  wt     = worktree
 
 [user]
 	name = David Cieplinski
