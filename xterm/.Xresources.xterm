@@ -7,3 +7,9 @@ XTerm*on4Clicks: line
 
 XTerm*metaSendsEscape: true
 
+XTerm*utf8:      1
+XTerm*ScrollBar: false
+XTerm*boldMode:  false
+
+XTerm*font:      -xos4-terminus-medium-*-*-*-16-*-*-*-*-*-*-*
+XTerm*font5:     -xos4-terminus-medium-*-*-*-32-*-*-*-*-*-*-*
