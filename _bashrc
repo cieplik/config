@@ -20,6 +20,7 @@ for F in $HIERS/[!.]*; do
   addToPath PKG_CONFIG_PATH $F/{,usr/}lib{,64}/pkgconfig
   addToPath MANPATH         $F/{,share/}man
   addToPath PYTHONPATH      $F/lib/python2.7/site-packages
+  addToPath ACLOCAL_PATH    $F/share/aclocal
 done
 
 addToPath PATH ${old_PATH//:/ }
