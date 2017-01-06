@@ -32,6 +32,7 @@ try
   Plugin 'bkad/CamelCaseMotion'
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'cieplik/vim-cmake'
   Plugin 'ctrlpvim/ctrlp.vim'
   Plugin 'elzr/vim-json'
   Plugin 'embear/vim-localvimrc'
@@ -62,6 +63,7 @@ try
   Plugin 'mattn/webapi-vim'
 
   " Syntax
+  Plugin 'hdima/python-syntax'
   Plugin 'tfnico/vim-gradle'
   Plugin 'tpope/vim-markdown'
   Plugin 'vim-scripts/scons.vim'
@@ -212,6 +214,13 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
+let g:ctrlp_prompt_mappings = {
+\ 'PrtHistory(-1)': ['<c-b>'],
+\ 'PrtHistory(1)':  ['<c-f>'],
+\ 'ToggleType(-1)': [],
+\ 'ToggleType(1)':  ['<c-p>'],
+\ }
+
 
 " QFEnter {{{1
 let g:qfenter_vopen_map = ['<C-v>']
@@ -273,6 +282,11 @@ function! FindClassTree()
     call map(lines, 'substitute(v:val, ''\v[^\/]+'', "", "")')
     call rtags#DisplayResults(lines)
 endfunction
+
+
+" Doxygen {{{1
+
+let g:load_doxygen_syntax = 1
 
 
 " Colorscheme {{{1
