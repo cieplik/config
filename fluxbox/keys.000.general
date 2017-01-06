@@ -1,6 +1,7 @@
 # Basic
 
 Mod4 3 :ExecCommand xterm -e "mplayer 'mms://stream.polskieradio.pl/program3'"
+Mod4 5 :ExecCommand xterm -e bc -l
 Mod4 a :ExecCommand xset m 1/1 4
 Mod4 b :ExecCommand VirtualBox
 # Mod4 c :ExecCommand ~/.dtella/dtella.py; linuxdcpp
@@ -32,6 +33,7 @@ Mod4 49 n :ExecCommand /opt/netbeans-6.9.1/bin/netbeans  # <W-`-n>
 
 Mod4 1 m :ExecCommand xterm -e mc
 Mod4 1 p :ExecCommand xterm -e python
+Mod4 1 t :ExecCommand xterm -e top
 
 # Network
 
