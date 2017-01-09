@@ -1,0 +1,5 @@
+_git_review ()
+{
+  __git_has_doubledash && return
+  __git_complete_revlist_file
+}
