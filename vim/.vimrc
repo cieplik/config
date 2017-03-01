@@ -45,6 +45,7 @@ try
   Plugin 'rhysd/clever-f.vim'
   Plugin 'rhysd/committia.vim'
   Plugin 'rhysd/vim-clang-format'
+  Plugin 'richq/vim-cmake-completion'
   Plugin 'rking/ag.vim'
   Plugin 'terryma/vim-multiple-cursors'
   Plugin 'tlib'
@@ -63,6 +64,7 @@ try
   Plugin 'mattn/webapi-vim'
 
   " Syntax
+  Plugin 'ekalinin/Dockerfile.vim'
   Plugin 'hdima/python-syntax'
   Plugin 'tfnico/vim-gradle'
   Plugin 'tpope/vim-markdown'
