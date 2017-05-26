@@ -28,6 +28,7 @@ try
   Plugin 'ReplaceWithRegister'
   Plugin 'SirVer/ultisnips'
   Plugin 'Valloric/YouCompleteMe'
+  Plugin 'airblade/vim-gitgutter'
   Plugin 'aklt/plantuml-syntax'
   Plugin 'bkad/CamelCaseMotion'
   Plugin 'vim-airline/vim-airline'
