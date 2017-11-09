@@ -15,22 +15,23 @@
   status = true
 
 [push]
-	default = upstream
+  default = upstream
 
 [alias]
-	ci     = commit
-	co     = checkout
-	dt     = difftool
+  ci     = commit
+  co     = checkout
+  cp     = cherry-pick
+  dt     = difftool
   fa     = fetch --all
   ff     = merge --ff-only
-	mt     = mergetool
+  mt     = mergetool
   review = !git-review.sh
   pr     = "!fetchpr() { git fetch $1 refs/pull-requests/$2/from; }; fetchpr"
-	st     = status
-	ta     = log --oneline --decorate --graph --color --branches --remotes
-	tb     = log --oneline --decorate --graph --color --branches
-	ts     = log --oneline --decorate --graph --color --branches --remotes --simplify-by-decoration
-	tt     = log --oneline --decorate --graph --color
+  st     = status
+  ta     = log --oneline --decorate --graph --color --branches --remotes HEAD
+  tb     = log --oneline --decorate --graph --color --branches
+  ts     = log --oneline --decorate --graph --color --branches --remotes --simplify-by-decoration
+  tt     = log --oneline --decorate --graph --color
   wt     = worktree
 
 [user]
