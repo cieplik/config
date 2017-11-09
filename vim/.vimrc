@@ -23,31 +23,32 @@ try
 
   Plugin 'VundleVim/Vundle.vim'
 
-  Plugin 'Align'
-  Plugin 'MarcWeber/vim-addon-mw-utils'
-  Plugin 'ReplaceWithRegister'
-  Plugin 'SirVer/ultisnips'
-  Plugin 'Valloric/YouCompleteMe'
   Plugin 'airblade/vim-gitgutter'
   Plugin 'aklt/plantuml-syntax'
+  Plugin 'Align'
+  Plugin 'AndrewRadev/linediff.vim'
   Plugin 'bkad/CamelCaseMotion'
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
   Plugin 'cieplik/vim-cmake'
   Plugin 'ctrlpvim/ctrlp.vim'
+  Plugin 'editorconfig/editorconfig-vim'
   Plugin 'elzr/vim-json'
   Plugin 'embear/vim-localvimrc'
   Plugin 'honza/vim-snippets'
   Plugin 'kana/vim-operator-user'
   Plugin 'kana/vim-submode'
   Plugin 'lyuts/vim-rtags'
+  Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'matze/vim-ini-fold'
   Plugin 'othree/xml.vim'
+  Plugin 'python-mode/python-mode'
+  Plugin 'qingxbl/Mark--Karkat'
+  Plugin 'ReplaceWithRegister'
   Plugin 'rhysd/clever-f.vim'
   Plugin 'rhysd/committia.vim'
   Plugin 'rhysd/vim-clang-format'
   Plugin 'richq/vim-cmake-completion'
   Plugin 'rking/ag.vim'
+  Plugin 'SirVer/ultisnips'
   Plugin 'terryma/vim-multiple-cursors'
   Plugin 'tlib'
   Plugin 'tpope/vim-abolish'
@@ -55,9 +56,12 @@ try
   Plugin 'tpope/vim-fugitive'
   Plugin 'tpope/vim-repeat'
   Plugin 'tpope/vim-surround'
-  Plugin 'vimoutliner/vimoutliner'
+  Plugin 'tpope/vim-vinegar'
+  Plugin 'Valloric/YouCompleteMe'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
   Plugin 'vim-scripts/dbext.vim'
-  Plugin 'qingxbl/Mark--Karkat'
+  Plugin 'vimoutliner/vimoutliner'
   Plugin 'will133/vim-dirdiff'
   Plugin 'yssl/QFEnter'
 
@@ -174,6 +178,7 @@ let g:airline_mode_map  = {'__': '-', 'n': 'N', 'i': 'I', 'R': 'R', 'c': 'C', 'v
 
 set ruler
 set showcmd
+set laststatus=2
 
 
 " GUI {{{1
@@ -224,6 +229,16 @@ let g:ctrlp_prompt_mappings = {
 \ 'ToggleType(1)':  ['<c-p>'],
 \ }
 
+nnoremap <C-c> :CtrlP .<CR>
+
+
+" EditorConfig {{{1
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+let g:EditorConfig_max_line_indicator = "none"
+
+" :EditorConfigReload conflicts with :Explore
+cnoreabbrev E Explore
+
 
 " QFEnter {{{1
 let g:qfenter_vopen_map = ['<C-v>']
@@ -250,9 +265,12 @@ let g:vim_json_syntax_conceal = 0
 
 " YouCompleteMe, vim-rtags {{{1
 
+let g:ycm_python_binary_path = 'python'
+
 let g:ycm_key_list_select_completion = []
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 1
+let g:ycm_extra_conf_globlist = ['~/.ycm_extra_conf.py']
 
 nnoremap <LocalLeader>3 :YcmCompleter ClearCompilationFlagCache<CR>
 nnoremap <LocalLeader>d :YcmCompleter GoToDeclaration<CR>
@@ -287,6 +305,14 @@ function! FindClassTree()
 endfunction
 
 
+" pymode {{{1
+
+let g:pymode_folding = 0
+let g:pymode_lint = 0
+let g:pymode_options = 0
+let g:pymode_rope = 0
+
+
 " Doxygen {{{1
 
 let g:load_doxygen_syntax = 1
@@ -295,6 +321,12 @@ let g:load_doxygen_syntax = 1
 " Colorscheme {{{1
 
 set rtp+=~/.vim/colorscheme
+
+
+" Accessibility {{{1
+
+map <Space><Space> <Tab>
+imap jj <Esc>
 
 
 " Machine-local runtime {{{1
