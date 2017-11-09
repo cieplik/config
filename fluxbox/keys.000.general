@@ -32,7 +32,8 @@ Mod4 49 n :ExecCommand /opt/netbeans-6.9.1/bin/netbeans  # <W-`-n>
 # Terminal
 
 Mod4 1 m :ExecCommand xterm -e mc
-Mod4 1 p :ExecCommand xterm -e python
+Mod4 1 n :ExecCommand BASH_ENV=$HOME/.bashrc xterm -e node
+Mod4 1 p :ExecCommand xterm -e '`which ptpython python 2>/dev/null | head -n 1`'
 Mod4 1 t :ExecCommand xterm -e top
 
 # Network
