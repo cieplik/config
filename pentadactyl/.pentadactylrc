@@ -1,26 +1,29 @@
 loadplugins '\.(js|penta)$'
 group user
 
-set guioptions+=T
-set guioptions-=s
+" set guioptions+=T
+" set guioptions-=s
 
-set complete+=suggestion
+set complete+=S
+set slv=hidden
 
 set showmode=
-set showstatuslinks=
+" set showstatuslinks=
 
-set passkeys=
+" set passkeys=
 
 
 " {{{1 Webmail
 
 " {{{2 Gmail
-set passkeys+=mail.google.com:/,?,j,k,n,p,u,*a,*n
+" set passkeys+=mail.google.com:/,?,j,k,n,p,u,*a,*n
+ignorekeys add mail\.google\.com
 
 " {{{2 OWA '16
-set passkeys+=emailsrvr.com:/,?,j,k,u,x
-group -locations=emailsrvr.com owa
-nmap -group=owa <CR> <C-v>o
+" set passkeys+=emailsrvr.com:/,?,j,k,u,x
+" group -locations=emailsrvr.com owa
+" nmap -group=owa <CR> <C-v>o
+" ignorekeys add emailsrvr\.com
 
 
 " {{{1 qmarks
