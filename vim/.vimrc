@@ -9,6 +9,8 @@ set shell=/bin/bash
 
 set mouse=
 
+set vb t_vb=
+
 let mapleader = ","
 let maplocalleader = "\<Space>"
 
@@ -119,6 +121,8 @@ set autoindent
 set textwidth=0
 
 set backspace=indent,eol,start
+
+set formatoptions+=j
 
 " Completion, hints, help {{{1
 
