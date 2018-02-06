@@ -1,5 +1,7 @@
 #!/bin/bash
 
+stty -ixon
+
 function addToPath
 {
   local P=$1; shift
@@ -34,6 +36,7 @@ export EDITOR=vim
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTTIMEFORMAT='%F %T  '
+shopt -s histappend
 
 export PROMPT_COMMAND=__prompt_command
 
@@ -45,8 +48,6 @@ function __prompt_command() {
 
   PS1="\t ${VIRTUAL_ENV:+(`basename $VIRTUAL_ENV`) }$STATUS\$ "
 }
-
-export TERM=xterm-256color
 
 for F in $HOME/.bashrc.{local,completion}; do
   [ -r $F ] && . $F

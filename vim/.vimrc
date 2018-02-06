@@ -66,6 +66,7 @@ try
   Plugin 'vim-scripts/dbext.vim'
   Plugin 'vimoutliner/vimoutliner'
   Plugin 'will133/vim-dirdiff'
+  Plugin 'xtal8/traces.vim'
   Plugin 'yssl/QFEnter'
 
   Plugin 'cieplik/vim-kythe'
