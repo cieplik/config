@@ -36,6 +36,7 @@ export EDITOR=vim
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTTIMEFORMAT='%F %T  '
+export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 
 export PROMPT_COMMAND=__prompt_command
@@ -49,7 +50,7 @@ function __prompt_command() {
   PS1="\t ${VIRTUAL_ENV:+(`basename $VIRTUAL_ENV`) }$STATUS\$ "
 }
 
-for F in $HOME/.bashrc.{local,completion}; do
+for F in $HOME/.bashrc.{local,completion} $HOME/.fzf.bash; do
   [ -r $F ] && . $F
 done
 
