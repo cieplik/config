@@ -68,6 +68,7 @@ try
   Plugin 'will133/vim-dirdiff'
   Plugin 'xtal8/traces.vim'
   Plugin 'yssl/QFEnter'
+  Plugin 'IngoHeimbach/neco-vim'
 
   Plugin 'cieplik/vim-kythe'
   Plugin 'mattn/webapi-vim'
@@ -295,6 +296,7 @@ noremap <LocalLeader>V :call rtags#JumpTo(g:V_SPLIT)<CR>
 noremap <LocalLeader>T :call rtags#JumpTo(g:NEW_TAB)<CR>
 noremap <LocalLeader>p :call rtags#JumpToParent()<CR>
 noremap <LocalLeader>f :call rtags#FindRefs()<CR>
+noremap <LocalLeader>F :call rtags#FindRefsCallTree()<CR>
 noremap <LocalLeader>n :call rtags#FindRefsByName(input("(find refs) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
 noremap <LocalLeader>s :call rtags#FindSymbols(input("(find symbols) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
 noremap <LocalLeader>t :call FindClassTree()<CR>
