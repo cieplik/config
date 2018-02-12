@@ -218,7 +218,7 @@ endfor
 " Ag {{{1
 
 command! -bang -nargs=* -complete=file Agg
-       \ call ag#Ag('grep<bang>', <q-args> . " " . system('git rev-parse --show-toplevel'))
+       \ call ag#Ag('grep!', <q-args> . " " . system('git rev-parse --show-toplevel'))
 
 
 " CtrlP {{{1
