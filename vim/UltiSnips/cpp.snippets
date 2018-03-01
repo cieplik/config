@@ -2,7 +2,7 @@ priority -25
 
 snippet ns "namespace .. (namespace)"
 namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`} {
-}  // `!p snip.rv = "namespace " + (t[1] or "unnamed namespace")`
+} // `!p snip.rv = (t[1] and "namespace " + t[1]) or "unnamed namespace"`
 endsnippet
 
 snippet once "#pragma once"

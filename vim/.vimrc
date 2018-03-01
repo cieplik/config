@@ -109,7 +109,7 @@ set viminfo='20,\"50
 
 set autochdir
 
-" let g:netrw_keepdir=0
+let g:netrw_keepdir=0
 
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 
@@ -251,6 +251,11 @@ cnoreabbrev E Explore
 let g:qfenter_vopen_map = ['<C-v>']
 let g:qfenter_hopen_map = ['<C-CR>', '<C-s>', '<C-x>']
 let g:qfenter_topen_map = ['<C-t>']
+
+
+" GitGutter {{{1
+
+nnoremap <LocalLeader>g :GitGutterToggle<CR>
 
 
 " LaTeX-Suite {{{1
