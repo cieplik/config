@@ -51,6 +51,7 @@ try
   Plugin 'richq/vim-cmake-completion'
   Plugin 'rking/ag.vim'
   Plugin 'SirVer/ultisnips'
+  Plugin 'sheerun/vim-polyglot'
   Plugin 'terryma/vim-multiple-cursors'
   Plugin 'tlib'
   Plugin 'tpope/vim-abolish'
@@ -72,13 +73,6 @@ try
 
   Plugin 'cieplik/vim-kythe'
   Plugin 'mattn/webapi-vim'
-
-  " Syntax
-  Plugin 'ekalinin/Dockerfile.vim'
-  Plugin 'hdima/python-syntax'
-  Plugin 'tfnico/vim-gradle'
-  Plugin 'tpope/vim-markdown'
-  Plugin 'vim-scripts/scons.vim'
 
   " Color schemes
   Plugin 'altercation/vim-colors-solarized'
@@ -273,6 +267,11 @@ let g:ini_fold_enabled_filetypes = {'gitconfig': 0, 'dosini': 1}
 
 " Don't conceal quotes
 let g:vim_json_syntax_conceal = 0
+
+
+" vim-polyglot {{{1
+
+let g:polyglot_disabled = ['c/c++', 'c++11']
 
 
 " YouCompleteMe, vim-rtags {{{1

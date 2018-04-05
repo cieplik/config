@@ -3,6 +3,7 @@
 
 [difftool]
   prompt = false
+  trustExitCode = true
 
 [difftool "my-vimdiff"]
   path = vim
