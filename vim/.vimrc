@@ -15,70 +15,64 @@ let mapleader = ","
 let maplocalleader = "\<Space>"
 
 
-" Vundle {{{1
+" vim-plug {{{1
 
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
 try
-  call vundle#begin()
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
 
-  Plugin 'VundleVim/Vundle.vim'
+  call plug#begin("~/.vim/bundle")
 
-  Plugin 'airblade/vim-gitgutter'
-  Plugin 'aklt/plantuml-syntax'
-  Plugin 'Align'
-  Plugin 'AndrewRadev/linediff.vim'
-  Plugin 'bkad/CamelCaseMotion'
-  Plugin 'cieplik/vim-cmake'
-  Plugin 'ctrlpvim/ctrlp.vim'
-  Plugin 'editorconfig/editorconfig-vim'
-  Plugin 'elzr/vim-json'
-  Plugin 'embear/vim-localvimrc'
-  Plugin 'honza/vim-snippets'
-  Plugin 'kana/vim-operator-user'
-  Plugin 'kana/vim-submode'
-  Plugin 'lyuts/vim-rtags'
-  Plugin 'MarcWeber/vim-addon-mw-utils'
-  Plugin 'matze/vim-ini-fold'
-  Plugin 'othree/xml.vim'
-  Plugin 'python-mode/python-mode'
-  Plugin 'qingxbl/Mark--Karkat'
-  Plugin 'ReplaceWithRegister'
-  Plugin 'rhysd/clever-f.vim'
-  Plugin 'rhysd/committia.vim'
-  Plugin 'rhysd/vim-clang-format'
-  Plugin 'richq/vim-cmake-completion'
-  Plugin 'rking/ag.vim'
-  Plugin 'SirVer/ultisnips'
-  Plugin 'sheerun/vim-polyglot'
-  Plugin 'terryma/vim-multiple-cursors'
-  Plugin 'tlib'
-  Plugin 'tpope/vim-abolish'
-  Plugin 'tpope/vim-dispatch'
-  Plugin 'tpope/vim-eunuch'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'tpope/vim-repeat'
-  Plugin 'tpope/vim-surround'
-  Plugin 'tpope/vim-vinegar'
-  Plugin 'Valloric/YouCompleteMe'
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
-  Plugin 'vim-scripts/dbext.vim'
-  Plugin 'vimoutliner/vimoutliner'
-  Plugin 'will133/vim-dirdiff'
-  Plugin 'xtal8/traces.vim'
-  Plugin 'yssl/QFEnter'
-  Plugin 'IngoHeimbach/neco-vim'
-
-  Plugin 'cieplik/vim-kythe'
-  Plugin 'mattn/webapi-vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'aklt/plantuml-syntax', {'for': 'plantuml'}
+  Plug 'vim-scripts/Align'
+  Plug 'AndrewRadev/linediff.vim'
+  Plug 'bkad/CamelCaseMotion'
+  Plug 'cieplik/vim-cmake'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'elzr/vim-json', {'for': 'json'}
+  Plug 'embear/vim-localvimrc'
+  Plug 'honza/vim-snippets'
+  Plug 'kana/vim-operator-user'
+  Plug 'kana/vim-submode'
+  Plug 'lyuts/vim-rtags'
+  Plug 'MarcWeber/vim-addon-mw-utils'
+  Plug 'matze/vim-ini-fold', {'for': 'dosini'}
+  Plug 'othree/xml.vim', {'for': 'xml'}
+  Plug 'python-mode/python-mode', {'for': 'python'}
+  Plug 'qingxbl/Mark--Karkat'
+  Plug 'vim-scripts/ReplaceWithRegister'
+  Plug 'rhysd/clever-f.vim'
+  Plug 'rhysd/committia.vim'
+  Plug 'kbenzie/vim-cmake-completion', {'for': 'cmake'}
+  Plug 'rking/ag.vim'
+  Plug 'SirVer/ultisnips'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'vim-scripts/tlib'
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-eunuch'
+  Plug 'tpope/vim-fugitive'
+  Plug 'junegunn/gv.vim'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-vinegar'
+  Plug 'Valloric/YouCompleteMe'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-scripts/dbext.vim'
+  Plug 'xtal8/traces.vim'
+  Plug 'yssl/QFEnter'
 
   " Color schemes
-  Plugin 'altercation/vim-colors-solarized'
-  Plugin 'jonathanfilip/vim-lucius'
+  Plug 'altercation/vim-colors-solarized'
+  Plug 'jonathanfilip/vim-lucius'
 
-  call vundle#end()
+  call plug#end()
 catch /.*/
 endtry
 
