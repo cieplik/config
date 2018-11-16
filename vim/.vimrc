@@ -39,9 +39,11 @@ try
   Plug 'honza/vim-snippets'
   Plug 'kana/vim-operator-user'
   Plug 'kana/vim-submode'
-  Plug 'lyuts/vim-rtags'
+  Plug 'lyuts/vim-rtags', {'for': ['c', 'cpp'], 'frozen': 1}
+  Plug 'cieplik/vim-rtags-callstack', {'for': ['c', 'cpp']}
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'matze/vim-ini-fold', {'for': 'dosini'}
+  Plug 'mogelbrod/vim-jsonpath'
   Plug 'othree/xml.vim', {'for': 'xml'}
   Plug 'python-mode/python-mode', {'for': 'python'}
   Plug 'qingxbl/Mark--Karkat'
@@ -61,10 +63,11 @@ try
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-vinegar'
-  Plug 'Valloric/YouCompleteMe'
+  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/dbext.vim'
+  Plug 'wellle/targets.vim'
   Plug 'xtal8/traces.vim'
   Plug 'yssl/QFEnter'
 
@@ -206,7 +209,7 @@ endfor
 " Ag {{{1
 
 command! -bang -nargs=* -complete=file Agg
-       \ call ag#Ag('grep!', <q-args> . " " . system('git rev-parse --show-toplevel'))
+       \ call ag#Ag('grep!', <q-args> . " " . system('env -u GIT_DIR git rev-parse --show-toplevel'))
 
 
 " CtrlP {{{1

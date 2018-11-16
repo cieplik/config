@@ -22,8 +22,12 @@ if ! exists('*s:jumpto')
   \   'c': [{'to': '.cpp'},
   \         {'to': '.c'},
   \         {'to': '.cc'},
-  \         {'to': '.C', 'df': 'include', 'dt': 'src'}],
-  \   'h': [{'to': '.h'}]
+  \         {'to': '.C', 'df': 'include', 'dt': 'src'},
+  \         {'to': '.cpp', 'df': '\v/include/[^/]+/', 'dt': '/src/'}
+  \   ],
+  \   'h': [{'to': '.h'},
+  \         {'to': '.h', 'df': '\v/([^/]+)/src/([^/]+)$', 'dt': '/\1/include/\1/\2'}
+  \   ]
   \ }
 endif
 
