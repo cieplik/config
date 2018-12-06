@@ -25,9 +25,10 @@
   dt     = difftool
   fa     = fetch --all
   ff     = merge --ff-only
+  mb     = "!reviewmb() { git review $(git merge-base HEAD $1); }; reviewmb"
   mt     = mergetool
   review = !git-review.sh
-  pr     = "!fetchpr() { git fetch $1 refs/pull-requests/$2/from; }; fetchpr"
+  pr     = "!fetchpr() { git fetch $1 refs/pull/$2/head; }; fetchpr"
   st     = status
   ta     = log --oneline --decorate --graph --color --branches --remotes HEAD
   tb     = log --oneline --decorate --graph --color --branches

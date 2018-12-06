@@ -1,8 +1,7 @@
 #!/bin/bash
 
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
-  me=$(basename "$0")
-  echo "USAGE: $me [REVSPEC...]"
+  echo "USAGE: $(basename "$0") [REVSPEC...]"
   echo "REVSPEC tricks:"
   echo "  --cached/--staged   - files to be committed"
   echo "  REV^!               - changes in particular commit (REV)"
