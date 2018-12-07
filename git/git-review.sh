@@ -17,14 +17,14 @@ dialog="$(which dialog whiptail 2>/dev/null | head -n1)"
   exit 1
 }
 
-# build list of differing files in correct format for 'dialog --menu'
-readarray -t menufiles < <(
-  git diff --name-only "$@" -- |         # list files differing between specified revs,
-  nl -s'<newline>'             |         # prepend index number to each filename
-  sed 's/<newline>/\n/g'      || exit 1
-)
-
 while true; do
+  # build list of differing files in correct format for 'dialog --menu'
+  readarray -t menufiles < <(
+    git diff --name-only "$@" -- |         # list files differing between specified revs,
+    nl -s'<newline>'             |         # prepend index number to each filename
+    sed 's/<newline>/\n/g'      || exit 1
+  )
+
   option=$(
     "$dialog" --default-item "${option:-1}" --menu                             \
       "Files changed for \"$@\":"                                              \

@@ -209,17 +209,16 @@ endfor
 " fzf.vim {{{1
 
 let g:fzf_action = {'ctrl-s': 'split', 'ctrl-t': 'tab split', 'ctrl-v': 'vsplit'}
+let g:fzf_layout = {'down': '~25%'}
 
 function! s:GitRoot()
   return systemlist('env -u GIT_DIR git rev-parse --show-toplevel')[0]
 endfunction
 
-command! -bang -nargs=* -complete=file Agg call fzf#vim#ag(<q-args>, {'dir': s:GitRoot()})
+command! -nargs=* Agg call fzf#vim#ag_raw(<q-args>, {'dir': s:GitRoot()})
 
 nnoremap <C-c> :Files<CR>
-
-command! ProjectFiles execute 'Files' s:GitRoot()
-nnoremap <C-p> :ProjectFiles<CR>
+nnoremap <C-p> :call fzf#vim#files(<SID>GitRoot())<CR>
 
 
 " EditorConfig {{{1
