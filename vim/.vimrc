@@ -211,6 +211,8 @@ endfor
 let g:fzf_action = {'ctrl-s': 'split', 'ctrl-t': 'tab split', 'ctrl-v': 'vsplit'}
 let g:fzf_layout = {'down': '~25%'}
 
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
 function! s:GitRoot()
   return systemlist('env -u GIT_DIR git rev-parse --show-toplevel')[0]
 endfunction
