@@ -32,10 +32,11 @@ try
   Plug 'AndrewRadev/linediff.vim'
   Plug 'bkad/CamelCaseMotion'
   Plug 'cieplik/vim-cmake'
-  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'elzr/vim-json', {'for': 'json'}
   Plug 'embear/vim-localvimrc'
+  Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --bin'}
+  Plug 'junegunn/fzf.vim'
   Plug 'honza/vim-snippets'
   Plug 'kana/vim-operator-user'
   Plug 'kana/vim-submode'
@@ -51,7 +52,6 @@ try
   Plug 'rhysd/clever-f.vim'
   Plug 'rhysd/committia.vim'
   Plug 'kbenzie/vim-cmake-completion', {'for': 'cmake'}
-  Plug 'rking/ag.vim'
   Plug 'SirVer/ultisnips'
   Plug 'sheerun/vim-polyglot'
   Plug 'terryma/vim-multiple-cursors'
@@ -206,28 +206,20 @@ for s:direction in ['-', '+', '<', '>']
 endfor
 
 
-" Ag {{{1
+" fzf.vim {{{1
 
-command! -bang -nargs=* -complete=file Agg
-       \ call ag#Ag('grep!', <q-args> . " " . system('env -u GIT_DIR git rev-parse --show-toplevel'))
+let g:fzf_action = {'ctrl-s': 'split', 'ctrl-t': 'tab split', 'ctrl-v': 'vsplit'}
 
+function! s:GitRoot()
+  return systemlist('env -u GIT_DIR git rev-parse --show-toplevel')[0]
+endfunction
 
-" CtrlP {{{1
-let g:ctrlp_max_files     = 100000
-let g:ctrlp_switch_buffer = 'et'
+command! -bang -nargs=* -complete=file Agg call fzf#vim#ag(<q-args>, {'dir': s:GitRoot()})
 
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
+nnoremap <C-c> :Files<CR>
 
-let g:ctrlp_prompt_mappings = {
-\ 'PrtHistory(-1)': ['<c-b>'],
-\ 'PrtHistory(1)':  ['<c-f>'],
-\ 'ToggleType(-1)': [],
-\ 'ToggleType(1)':  ['<c-p>'],
-\ }
-
-nnoremap <C-c> :CtrlP .<CR>
+command! ProjectFiles execute 'Files' s:GitRoot()
+nnoremap <C-p> :ProjectFiles<CR>
 
 
 " EditorConfig {{{1
