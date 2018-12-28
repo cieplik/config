@@ -50,7 +50,6 @@ try
   Plug 'qingxbl/Mark--Karkat'
   Plug 'vim-scripts/ReplaceWithRegister'
   Plug 'rhysd/clever-f.vim'
-  Plug 'rhysd/committia.vim'
   Plug 'kbenzie/vim-cmake-completion', {'for': 'cmake'}
   Plug 'SirVer/ultisnips'
   Plug 'sheerun/vim-polyglot'
@@ -59,6 +58,7 @@ try
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
   Plug 'junegunn/gv.vim'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
@@ -83,6 +83,7 @@ endtry
 " Filetype {{{1
 
 filetype plugin on
+filetype indent off
 
 
 " Reset all {{{1

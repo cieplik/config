@@ -19,7 +19,7 @@
   default = upstream
 
 [alias]
-  ci     = commit
+  ci     = commit -v
   co     = checkout
   cp     = cherry-pick
   dt     = difftool
