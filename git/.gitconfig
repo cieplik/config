@@ -28,10 +28,12 @@
   mb     = "!reviewmb() { git review $(git merge-base HEAD $1); }; reviewmb"
   mt     = mergetool
   review = !git-review.sh
-  pr     = "!fetchpr() { git fetch $1 refs/pull/$2/head; }; fetchpr"
+  pr     = "!fetchpr() { git fetch $1 refs/pull/$2/head && git co FETCH_HEAD; }; fetchpr"
   st     = status
   ta     = log --oneline --decorate --graph --color --branches --remotes HEAD
   tb     = log --oneline --decorate --graph --color --branches
+  th     = log --oneline --decorate --graph --color HEAD
+  tr     = log --oneline --decorate --graph --color --reflog --since='1 month ago'
   ts     = log --oneline --decorate --graph --color --branches --remotes --simplify-by-decoration
   tt     = log --oneline --decorate --graph --color
   wt     = worktree
