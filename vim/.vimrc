@@ -35,8 +35,10 @@ try
   Plug 'editorconfig/editorconfig-vim'
   Plug 'elzr/vim-json', {'for': 'json'}
   Plug 'embear/vim-localvimrc'
+  Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
   Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --bin'}
   Plug 'junegunn/fzf.vim'
+  Plug 'will133/vim-dirdiff'
   Plug 'honza/vim-snippets'
   Plug 'kana/vim-operator-user'
   Plug 'kana/vim-submode'
@@ -63,7 +65,7 @@ try
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-vinegar'
-  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --go-completer --ts-completer'}
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/dbext.vim'
@@ -135,6 +137,12 @@ set wildmenu
 
 set ignorecase
 set smartcase
+
+
+" Diff {{{1
+
+nnoremap <LocalLeader>b :set noscrollbind nocursorbind<CR>
+nnoremap <LocalLeader>B :set scrollbind cursorbind<CR>
 
 
 " Searching {{{1
@@ -233,9 +241,7 @@ cnoreabbrev E Explore
 
 
 " QFEnter {{{1
-let g:qfenter_vopen_map = ['<C-v>']
-let g:qfenter_hopen_map = ['<C-CR>', '<C-s>', '<C-x>']
-let g:qfenter_topen_map = ['<C-t>']
+let g:qfenter_keymap = {'vopen': ['<C-v>'], 'hopen': ['<C-CR>', '<C-s>', '<C-x>'], 'topen': ['<C-t>']}
 
 
 " GitGutter {{{1
@@ -283,22 +289,6 @@ highlight link YcmErrorSection Error
 
 
 let g:rtagsUseDefaultMappings = 0
-
-noremap <LocalLeader>i :call rtags#SymbolInfo()<CR>
-noremap <LocalLeader>j :call rtags#JumpTo(g:SAME_WINDOW)<CR>
-noremap <LocalLeader>S :call rtags#JumpTo(g:H_SPLIT)<CR>
-noremap <LocalLeader>V :call rtags#JumpTo(g:V_SPLIT)<CR>
-noremap <LocalLeader>T :call rtags#JumpTo(g:NEW_TAB)<CR>
-noremap <LocalLeader>p :call rtags#JumpToParent()<CR>
-noremap <LocalLeader>f :call rtags#FindRefs()<CR>
-noremap <LocalLeader>F :call rtags#FindRefsCallTree()<CR>
-noremap <LocalLeader>n :call rtags#FindRefsByName(input("(find refs) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
-noremap <LocalLeader>s :call rtags#FindSymbols(input("(find symbols) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
-noremap <LocalLeader>t :call FindClassTree()<CR>
-noremap <LocalLeader>r :call rtags#ReindexFile()<CR>
-noremap <LocalLeader>l :call rtags#ProjectList()<CR>
-noremap <LocalLeader>w :call rtags#RenameSymbolUnderCursor()<CR>
-noremap <LocalLeader>v :call rtags#FindVirtuals()<CR>
 
 function! FindClassTree()
     let lines = rtags#ExecuteRC({'-class-hierarchy': rtags#getCurrentLocation()})
