@@ -37,7 +37,7 @@ export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTTIMEFORMAT='%F %T  '
 export HISTCONTROL=ignoredups:erasedups
-shopt -s histappend
+shopt -s histappend lithist
 
 export PROMPT_COMMAND=__prompt_command
 

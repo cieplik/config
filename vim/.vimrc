@@ -223,7 +223,7 @@ let g:fzf_layout = {'down': '~25%'}
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 function! s:GitRoot()
-  return systemlist('env -u GIT_DIR git rev-parse --show-toplevel')[0]
+  return systemlist('env -u GIT_DIR -u GIT_WORK_TREE git rev-parse --show-toplevel')[0]
 endfunction
 
 command! -nargs=* Agg call fzf#vim#ag_raw(<q-args>, {'dir': s:GitRoot()})
