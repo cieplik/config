@@ -49,7 +49,7 @@ try
   Plug 'mogelbrod/vim-jsonpath'
   Plug 'othree/xml.vim', {'for': 'xml'}
   Plug 'python-mode/python-mode', {'for': 'python'}
-  Plug 'qingxbl/Mark--Karkat'
+  Plug 'ryancx/Mark--Karkat'
   Plug 'vim-scripts/ReplaceWithRegister'
   Plug 'rhysd/clever-f.vim'
   Plug 'kbenzie/vim-cmake-completion', {'for': 'cmake'}
@@ -64,8 +64,9 @@ try
   Plug 'junegunn/gv.vim'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
-  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --go-completer --ts-completer'}
+  Plug 'Valloric/YouCompleteMe', {'commit': 'd91e0f03e2e88bc563ffe4c8f7901b0beb2a7d4f', 'do': './install.py --clang-completer --java-completer --go-completer'}  " --ts-completer'}
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/dbext.vim'
@@ -101,7 +102,7 @@ set viminfo='20,\"50
 
 " File access {{{1
 
-set autochdir
+autocmd BufEnter * silent! lcd %:p:h  " `set noautochdir` was causing problems with FZF
 
 let g:netrw_keepdir=0
 
@@ -215,20 +216,25 @@ for s:direction in ['-', '+', '<', '>']
 endfor
 
 
-" fzf.vim {{{1
+" vim-fugitive {{{1
+nnoremap <LocalLeader>m :Gvdiffsplit origin/master:%<CR>
 
+
+" fzf.vim {{{1
 let g:fzf_action = {'ctrl-s': 'split', 'ctrl-t': 'tab split', 'ctrl-v': 'vsplit'}
 let g:fzf_layout = {'down': '~25%'}
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 function! s:GitRoot()
+  return systemlist('git rev-parse --show-toplevel')[0]
   return systemlist('env -u GIT_DIR -u GIT_WORK_TREE git rev-parse --show-toplevel')[0]
 endfunction
 
 command! -nargs=* Agg call fzf#vim#ag_raw(<q-args>, {'dir': s:GitRoot()})
 
 nnoremap <C-c> :Files<CR>
+nnoremap <C-m> :call fzf#vim#files(fnamemodify(findfile('CMakeLists.txt', ';'), ':h'))<CR>
 nnoremap <C-p> :call fzf#vim#files(<SID>GitRoot())<CR>
 
 
@@ -281,6 +287,7 @@ let g:ycm_enable_diagnostic_highlighting = 1
 let g:ycm_extra_conf_globlist = ['~/.ycm_extra_conf.py']
 
 nnoremap <LocalLeader>3 :YcmCompleter ClearCompilationFlagCache<CR>
+nnoremap <LocalLeader>= :YcmCompleter FixIt<CR>
 nnoremap <LocalLeader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <LocalLeader>D :YcmCompleter GoToDefinition<CR>
 nnoremap <LocalLeader>/ :YcmDiags<CR>

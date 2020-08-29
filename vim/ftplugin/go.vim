@@ -6,3 +6,5 @@ noremap <buffer> <LocalLeader>T :split<CR>:GoDef<CR><C-W>T
 noremap <buffer> <LocalLeader>f :GoReferrers<CR>
 noremap <buffer> <LocalLeader>F :GoCallers<CR>
 noremap <buffer> <LocalLeader>w :GoRename<CR>
+
+let g:go_fmt_command = "goimports"

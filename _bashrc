@@ -53,4 +53,3 @@ function __prompt_command() {
 for F in $HOME/.bashrc.{local,completion} $HOME/.fzf.bash; do
   [ -r $F ] && . $F
 done
-
