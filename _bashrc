@@ -24,6 +24,7 @@ for F in $HIERS/[!.]*; do
   addToPath ACLOCAL_PATH    $F/share/aclocal
 done
 
+addToPath PATH $HOME/go/bin
 addToPath PATH ${old_PATH//:/ }
 
 addToPath MANPATH /usr/{,share/}man

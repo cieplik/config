@@ -7,7 +7,7 @@ fi
 
 cd "$(git rev-parse --show-toplevel)"
 
-QUERY_FILE=`mktemp --tmpdir git-review.query.XXXXXXXXXX`
+QUERY_FILE=`mktemp ${TMPDIR:-/tmp}/git-review.query.XXXXXXXXXX`
 while [ -f $QUERY_FILE ]; do
   git diff --name-only "$@" \
 | fzf \
