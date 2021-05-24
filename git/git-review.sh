@@ -13,6 +13,10 @@ while [ -f $QUERY_FILE ]; do
 | fzf \
     --bind "ctrl-d:cancel" \
     --bind "ctrl-l:execute(echo {q} > $QUERY_FILE)+abort" \
+    --bind "ctrl-e:preview-down" \
+    --bind "ctrl-y:preview-up" \
+    --bind "ctrl-f:preview-page-down" \
+    --bind "ctrl-b:preview-page-up" \
     --bind "enter:execute(stty -F /dev/tty -ixon; git difftool --no-prompt "$@" -- {} < /dev/tty)" \
     --no-mouse `# to make text selection work` \
     --preview "git diff --color "$@" {} " \

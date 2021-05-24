@@ -54,7 +54,7 @@ try
   Plug 'rhysd/clever-f.vim'
   Plug 'kbenzie/vim-cmake-completion', {'for': 'cmake'}
   Plug 'SirVer/ultisnips'
-  Plug 'sheerun/vim-polyglot'
+  " Plug 'sheerun/vim-polyglot'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'vim-scripts/tlib'
   Plug 'tpope/vim-abolish'
@@ -66,7 +66,7 @@ try
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
-  Plug 'Valloric/YouCompleteMe', {'commit': 'd91e0f03e2e88bc563ffe4c8f7901b0beb2a7d4f', 'do': './install.py --clang-completer --java-completer --go-completer'}  " --ts-completer'}
+  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clangd-completer --go-completer'}  " --java-completer --go-completer'}  " --ts-completer'}
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/dbext.vim'
@@ -76,7 +76,7 @@ try
 
   " Color schemes
   Plug 'altercation/vim-colors-solarized'
-  Plug 'jonathanfilip/vim-lucius'
+  " Plug 'jonathanfilip/vim-lucius'
 
   call plug#end()
 catch /.*/
@@ -233,6 +233,10 @@ endfunction
 
 command! -nargs=* Agg call fzf#vim#ag_raw(<q-args>, {'dir': s:GitRoot()})
 
+nnoremap <LocalLeader>w :Agg -w <C-r><C-w><CR>
+nnoremap <LocalLeader>a :Agg -w 
+nnoremap <LocalLeader>A :Ag -w 
+
 nnoremap <C-c> :Files<CR>
 nnoremap <C-m> :call fzf#vim#files(fnamemodify(findfile('CMakeLists.txt', ';'), ':h'))<CR>
 nnoremap <C-p> :call fzf#vim#files(<SID>GitRoot())<CR>
@@ -334,5 +338,9 @@ imap jj <Esc>
 set rtp+=~/.vim/local
 
 " }}}1
+
+
+set background=dark
+colorscheme solarized
 
 " vim: set expandtab foldmethod=marker :

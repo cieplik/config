@@ -51,6 +51,6 @@ function __prompt_command() {
   PS1="\t ${VIRTUAL_ENV:+(`basename $VIRTUAL_ENV`) }$STATUS\$ "
 }
 
-for F in $HOME/.bashrc.{local,completion} $HOME/.fzf.bash; do
+for F in $HOME/.bashrc.{local,completion} $HOME/.fzf.bash $HOME/.bash_completion.d/python-argcomplete ; do
   [ -r $F ] && . $F
 done

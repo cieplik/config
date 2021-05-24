@@ -41,7 +41,8 @@ nnoremap <buffer> <LocalLeader>H :call <SID>jumpto('h', 1)<CR>
 
 " vim-rtags {{{1
 
-noremap <buffer> <LocalLeader>i :call rtags#SymbolInfo()<CR>
+let g:ycm_auto_hover = ''
+nmap <buffer> <LocalLeader>i <plug>(YCMHover)
 noremap <buffer> <LocalLeader>j :call rtags#JumpTo(g:SAME_WINDOW)<CR>
 noremap <buffer> <LocalLeader>S :call rtags#JumpTo(g:H_SPLIT)<CR>
 noremap <buffer> <LocalLeader>V :call rtags#JumpTo(g:V_SPLIT)<CR>
@@ -52,9 +53,8 @@ noremap <buffer> <LocalLeader>F :call rtags#FindRefsCallTree()<CR>
 noremap <buffer> <LocalLeader>n :call rtags#FindRefsByName(input("(find refs) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
 noremap <buffer> <LocalLeader>s :call rtags#FindSymbols(input("(find symbols) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
 noremap <buffer> <LocalLeader>t :call FindClassTree()<CR>
-noremap <buffer> <LocalLeader>r :call rtags#ReindexFile()<CR>
 noremap <buffer> <LocalLeader>l :call rtags#ProjectList()<CR>
-noremap <buffer> <LocalLeader>w :call rtags#RenameSymbolUnderCursor()<CR>
+noremap <buffer> <LocalLeader>r :call rtags#RenameSymbolUnderCursor()<CR>
 noremap <buffer> <LocalLeader>v :call rtags#FindVirtuals()<CR>
 
 
