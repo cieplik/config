@@ -35,8 +35,10 @@ try
   Plug 'editorconfig/editorconfig-vim'
   Plug 'elzr/vim-json', {'for': 'json'}
   Plug 'embear/vim-localvimrc'
+  Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
   Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --bin'}
   Plug 'junegunn/fzf.vim'
+  Plug 'will133/vim-dirdiff'
   Plug 'honza/vim-snippets'
   Plug 'kana/vim-operator-user'
   Plug 'kana/vim-submode'
@@ -47,7 +49,7 @@ try
   Plug 'mogelbrod/vim-jsonpath'
   Plug 'othree/xml.vim', {'for': 'xml'}
   Plug 'python-mode/python-mode', {'for': 'python'}
-  " Plug 'qingxbl/Mark--Karkat'
+  Plug 'ryancx/Mark--Karkat'
   Plug 'vim-scripts/ReplaceWithRegister'
   Plug 'rhysd/clever-f.vim'
   Plug 'kbenzie/vim-cmake-completion', {'for': 'cmake'}
@@ -57,11 +59,13 @@ try
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
   Plug 'junegunn/gv.vim'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
-  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clangd-completer --go-completer'}  " --java-completer --go-completer'}  " --ts-completer'}
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/dbext.vim'
@@ -94,7 +98,7 @@ set viminfo='20,\"50
 
 " File access {{{1
 
-set autochdir
+autocmd BufEnter * silent! lcd %:p:h  " `set noautochdir` was causing problems with FZF
 
 let g:netrw_keepdir=0
 
@@ -130,6 +134,12 @@ set wildmenu
 
 set ignorecase
 set smartcase
+
+
+" Diff {{{1
+
+nnoremap <LocalLeader>b :set noscrollbind nocursorbind<CR>
+nnoremap <LocalLeader>B :set scrollbind cursorbind<CR>
 
 
 " Searching {{{1
@@ -202,20 +212,29 @@ for s:direction in ['-', '+', '<', '>']
 endfor
 
 
-" fzf.vim {{{1
+" vim-fugitive {{{1
+nnoremap <LocalLeader>m :Gvdiffsplit origin/master:%<CR>
 
+
+" fzf.vim {{{1
 let g:fzf_action = {'ctrl-s': 'split', 'ctrl-t': 'tab split', 'ctrl-v': 'vsplit'}
 let g:fzf_layout = {'down': '~25%'}
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 function! s:GitRoot()
-  return systemlist('env -u GIT_DIR git rev-parse --show-toplevel')[0]
+  return systemlist('git rev-parse --show-toplevel')[0]
+  return systemlist('env -u GIT_DIR -u GIT_WORK_TREE git rev-parse --show-toplevel')[0]
 endfunction
 
 command! -nargs=* Agg call fzf#vim#ag_raw(<q-args>, {'dir': s:GitRoot()})
 
+nnoremap <LocalLeader>w :Agg -w <C-r><C-w><CR>
+nnoremap <LocalLeader>a :Agg -w 
+nnoremap <LocalLeader>A :Ag -w 
+
 nnoremap <C-c> :Files<CR>
+nnoremap <C-m> :call fzf#vim#files(fnamemodify(findfile('CMakeLists.txt', ';'), ':h'))<CR>
 nnoremap <C-p> :call fzf#vim#files(<SID>GitRoot())<CR>
 
 
@@ -228,9 +247,7 @@ cnoreabbrev E Explore
 
 
 " QFEnter {{{1
-let g:qfenter_vopen_map = ['<C-v>']
-let g:qfenter_hopen_map = ['<C-CR>', '<C-s>', '<C-x>']
-let g:qfenter_topen_map = ['<C-t>']
+let g:qfenter_keymap = {'vopen': ['<C-v>'], 'hopen': ['<C-CR>', '<C-s>', '<C-x>'], 'topen': ['<C-t>']}
 
 
 " GitGutter {{{1
@@ -270,6 +287,7 @@ let g:ycm_enable_diagnostic_highlighting = 1
 let g:ycm_extra_conf_globlist = ['~/.ycm_extra_conf.py']
 
 nnoremap <LocalLeader>3 :YcmCompleter ClearCompilationFlagCache<CR>
+nnoremap <LocalLeader>= :YcmCompleter FixIt<CR>
 nnoremap <LocalLeader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <LocalLeader>D :YcmCompleter GoToDefinition<CR>
 nnoremap <LocalLeader>/ :YcmDiags<CR>
@@ -278,22 +296,6 @@ highlight link YcmErrorSection Error
 
 
 let g:rtagsUseDefaultMappings = 0
-
-noremap <LocalLeader>i :call rtags#SymbolInfo()<CR>
-noremap <LocalLeader>j :call rtags#JumpTo(g:SAME_WINDOW)<CR>
-noremap <LocalLeader>S :call rtags#JumpTo(g:H_SPLIT)<CR>
-noremap <LocalLeader>V :call rtags#JumpTo(g:V_SPLIT)<CR>
-noremap <LocalLeader>T :call rtags#JumpTo(g:NEW_TAB)<CR>
-noremap <LocalLeader>p :call rtags#JumpToParent()<CR>
-noremap <LocalLeader>f :call rtags#FindRefs()<CR>
-noremap <LocalLeader>F :call rtags#FindRefsCallTree()<CR>
-noremap <LocalLeader>n :call rtags#FindRefsByName(input("(find refs) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
-noremap <LocalLeader>s :call rtags#FindSymbols(input("(find symbols) pattern: ", "", "customlist,rtags#CompleteSymbols"))<CR>
-noremap <LocalLeader>t :call FindClassTree()<CR>
-noremap <LocalLeader>r :call rtags#ReindexFile()<CR>
-noremap <LocalLeader>l :call rtags#ProjectList()<CR>
-noremap <LocalLeader>w :call rtags#RenameSymbolUnderCursor()<CR>
-noremap <LocalLeader>v :call rtags#FindVirtuals()<CR>
 
 function! FindClassTree()
     let lines = rtags#ExecuteRC({'-class-hierarchy': rtags#getCurrentLocation()})
@@ -337,5 +339,9 @@ set rtp+=~/.vim/local
 
 " }}}1
 set nocindent
+
+
+set background=dark
+colorscheme solarized
 
 " vim: set expandtab foldmethod=marker :

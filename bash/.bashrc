@@ -24,6 +24,7 @@ for F in $HIERS/[!.]*; do
   addToPath ACLOCAL_PATH    $F/share/aclocal
 done
 
+addToPath PATH $HOME/go/bin
 addToPath PATH ${old_PATH//:/ }
 
 addToPath MANPATH /usr/{,share/}man
@@ -37,7 +38,7 @@ export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTTIMEFORMAT='%F %T  '
 export HISTCONTROL=ignoredups:erasedups
-shopt -s histappend
+shopt -s histappend lithist
 
 export PROMPT_COMMAND=__prompt_command
 
@@ -50,7 +51,6 @@ function __prompt_command() {
   PS1="\t ${VIRTUAL_ENV:+(`basename $VIRTUAL_ENV`) }$STATUS\$ "
 }
 
-for F in $HOME/.bashrc.{local,completion} $HOME/.fzf.bash; do
+for F in $HOME/.bashrc.{local,completion} $HOME/.fzf.bash $HOME/.bash_completion.d/python-argcomplete ; do
   [ -r $F ] && . $F
 done
-
