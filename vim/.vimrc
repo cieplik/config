@@ -320,10 +320,6 @@ let g:load_doxygen_syntax = 1
 
 " Colorscheme {{{1
 
-" set rtp+=~/.vim/colorscheme
-" syntax enable
-" let g:solarized_termcolors=256
-" set background=dark
 colorscheme flattened_dark
 
 
@@ -338,10 +334,6 @@ imap jj <Esc>
 set rtp+=~/.vim/local
 
 " }}}1
-set nocindent
 
-
-set background=dark
-colorscheme solarized
 
 " vim: set expandtab foldmethod=marker :
