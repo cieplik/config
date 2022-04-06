@@ -47,15 +47,13 @@ try
   Plug 'mogelbrod/vim-jsonpath'
   Plug 'othree/xml.vim', {'for': 'xml'}
   Plug 'python-mode/python-mode', {'for': 'python'}
-  Plug 'qingxbl/Mark--Karkat'
+  " Plug 'qingxbl/Mark--Karkat'
   Plug 'vim-scripts/ReplaceWithRegister'
   Plug 'rhysd/clever-f.vim'
-  Plug 'rhysd/committia.vim'
   Plug 'kbenzie/vim-cmake-completion', {'for': 'cmake'}
   Plug 'SirVer/ultisnips'
-  Plug 'sheerun/vim-polyglot'
   Plug 'terryma/vim-multiple-cursors'
-  Plug 'vim-scripts/tlib'
+  Plug 'tomtom/tlib_vim'
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
@@ -70,10 +68,7 @@ try
   Plug 'wellle/targets.vim'
   Plug 'xtal8/traces.vim'
   Plug 'yssl/QFEnter'
-
-  " Color schemes
-  Plug 'altercation/vim-colors-solarized'
-  Plug 'jonathanfilip/vim-lucius'
+  Plug 'romainl/flattened'
 
   call plug#end()
 catch /.*/
@@ -83,6 +78,7 @@ endtry
 " Filetype {{{1
 
 filetype plugin on
+filetype indent off
 
 
 " Reset all {{{1
@@ -322,7 +318,11 @@ let g:load_doxygen_syntax = 1
 
 " Colorscheme {{{1
 
-set rtp+=~/.vim/colorscheme
+" set rtp+=~/.vim/colorscheme
+" syntax enable
+" let g:solarized_termcolors=256
+" set background=dark
+colorscheme flattened_dark
 
 
 " Accessibility {{{1
@@ -336,5 +336,6 @@ imap jj <Esc>
 set rtp+=~/.vim/local
 
 " }}}1
+set nocindent
 
 " vim: set expandtab foldmethod=marker :

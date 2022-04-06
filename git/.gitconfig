@@ -1,3 +1,6 @@
+[commit]
+  verbose = true
+
 [core]
   notesRef = refs/notes/hg
 
@@ -40,5 +43,7 @@
 	name = cieplik
 	email = dcieplin@gmail.com
 
+[url "https://"]
+	insteadOf = git://
 
 # vim: set et:
