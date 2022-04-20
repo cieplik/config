@@ -223,7 +223,6 @@ let g:fzf_layout = {'down': '~25%'}
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 function! s:GitRoot()
-  return systemlist('git rev-parse --show-toplevel')[0]
   return systemlist('env -u GIT_DIR -u GIT_WORK_TREE git rev-parse --show-toplevel')[0]
 endfunction
 
