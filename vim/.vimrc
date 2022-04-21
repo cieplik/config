@@ -47,6 +47,7 @@ try
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'matze/vim-ini-fold', {'for': 'dosini'}
   Plug 'mogelbrod/vim-jsonpath'
+  Plug 'ojroques/vim-oscyank', {'branch': 'main'}
   Plug 'othree/xml.vim', {'for': 'xml'}
   Plug 'python-mode/python-mode', {'for': 'python'}
   Plug 'ryancx/Mark--Karkat'
@@ -269,6 +270,12 @@ let g:ini_fold_enabled_filetypes = {'gitconfig': 0, 'dosini': 1}
 
 " Don't conceal quotes
 let g:vim_json_syntax_conceal = 0
+
+
+" vim-oscyank {{{1
+
+vnoremap <LocalLeader>o :OSCYank<CR>
+nmap <LocalLeader>o <Plug>OSCYank
 
 
 " vim-polyglot {{{1
