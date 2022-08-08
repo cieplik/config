@@ -43,10 +43,6 @@ nnoremap <buffer> <LocalLeader>H :call <SID>jumpto('h', 1)<CR>
 
 let g:ycm_auto_hover = ''
 nmap <buffer> <LocalLeader>i <plug>(YCMHover)
-noremap <buffer> <LocalLeader>j :call rtags#JumpTo(g:SAME_WINDOW)<CR>
-noremap <buffer> <LocalLeader>S :call rtags#JumpTo(g:H_SPLIT)<CR>
-noremap <buffer> <LocalLeader>V :call rtags#JumpTo(g:V_SPLIT)<CR>
-noremap <buffer> <LocalLeader>T :call rtags#JumpTo(g:NEW_TAB)<CR>
 noremap <buffer> <LocalLeader>p :call rtags#JumpToParent()<CR>
 noremap <buffer> <LocalLeader>f :call rtags#FindRefs()<CR>
 noremap <buffer> <LocalLeader>F :call rtags#FindRefsCallTree()<CR>

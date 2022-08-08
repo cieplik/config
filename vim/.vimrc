@@ -42,7 +42,7 @@ try
   Plug 'honza/vim-snippets'
   Plug 'kana/vim-operator-user'
   Plug 'kana/vim-submode'
-  Plug 'lyuts/vim-rtags', {'for': ['c', 'cpp'], 'frozen': 1}
+  Plug 'lyuts/vim-rtags', {'for': ['c', 'cpp']}
   Plug 'cieplik/vim-rtags-callstack', {'for': ['c', 'cpp']}
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'matze/vim-ini-fold', {'for': 'dosini'}
@@ -66,7 +66,7 @@ try
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
-  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clangd-completer --go-completer'}  " --java-completer --go-completer'}  " --ts-completer'}
+  Plug 'Valloric/YouCompleteMe', {'do': './install.py --clangd-completer --go-completer --verbose'}  " --java-completer --ts-completer'}
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/dbext.vim'
@@ -121,13 +121,9 @@ set formatoptions+=j
 
 " Completion, hints, help {{{1
 
-let OmniCpp_MayCompleteDot   = 0
-let OmniCpp_MayCompleteArrow = 0
-let OmniCpp_MayCompleteScope = 0
-
 set keywordprg=:help
 
-set wildmode=full
+set wildmode=list:longest,full
 set wildmenu
 
 
@@ -221,7 +217,7 @@ nnoremap <LocalLeader>m :Gvdiffsplit origin/master:%<CR>
 let g:fzf_action = {'ctrl-s': 'split', 'ctrl-t': 'tab split', 'ctrl-v': 'vsplit'}
 let g:fzf_layout = {'down': '~25%'}
 
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden --ignore .git --ignore .cache'
 
 function! s:GitRoot()
   return systemlist('env -u GIT_DIR -u GIT_WORK_TREE git rev-parse --show-toplevel')[0]
@@ -296,6 +292,10 @@ nnoremap <LocalLeader>3 :YcmCompleter ClearCompilationFlagCache<CR>
 nnoremap <LocalLeader>= :YcmCompleter FixIt<CR>
 nnoremap <LocalLeader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <LocalLeader>D :YcmCompleter GoToDefinition<CR>
+nnoremap <LocalLeader>j :YcmCompleter GoToDefinition<CR>
+nnoremap <LocalLeader>S :split \| YcmCompleter GoToDefinition<CR>
+nnoremap <LocalLeader>V :vsplit \| YcmCompleter GoToDefinition<CR>
+nnoremap <LocalLeader>T :tab split \| YcmCompleter GoToDefinition<CR>
 nnoremap <LocalLeader>/ :YcmDiags<CR>
 
 highlight link YcmErrorSection Error
