@@ -25,6 +25,7 @@ for F in $HIERS/[!.]*; do
 done
 
 addToPath PATH $HOME/go/bin
+addToPath PATH $HOME/.fzf
 addToPath PATH ${old_PATH//:/ }
 
 addToPath MANPATH /usr/{,share/}man
@@ -51,6 +52,10 @@ function __prompt_command() {
   PS1="\t ${VIRTUAL_ENV:+(`basename $VIRTUAL_ENV`) }$STATUS\$ "
 }
 
-for F in $HOME/.bashrc.{local,completion} $HOME/.fzf.bash $HOME/.bash_completion.d/python-argcomplete ; do
+for F in $HOME/.fzf.bash ; do
   [ -r $F ] && . $F
+done
+
+for F in /usr/share/bash-completion/bash_completion ; do
+  [ -r $F ] && . $F && break || true
 done

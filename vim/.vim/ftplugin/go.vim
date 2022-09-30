@@ -1,0 +1,1 @@
+let g:ycm_collect_identifiers_from_comments_and_strings = 1

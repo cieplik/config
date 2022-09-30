@@ -74,6 +74,7 @@ try
   Plug 'xtal8/traces.vim'
   Plug 'yssl/QFEnter'
   Plug 'romainl/flattened'
+  Plug 'ConradIrwin/vim-bracketed-paste'
 
   call plug#end()
 catch /.*/
@@ -143,6 +144,9 @@ nnoremap <LocalLeader>B :set scrollbind cursorbind<CR>
 
 set hlsearch
 set incsearch
+
+nnoremap ]b :call searchpair('\[','','\]')<CR>
+nnoremap [b :call searchpair('\[','','\]','b')<CR>
 
 
 " Line wrapping {{{1
@@ -228,6 +232,7 @@ command! -nargs=* Agg call fzf#vim#ag_raw(<q-args>, {'dir': s:GitRoot()})
 nnoremap <LocalLeader>w :Agg -w <C-r><C-w><CR>
 nnoremap <LocalLeader>a :Agg -w 
 nnoremap <LocalLeader>A :Ag -w 
+nnoremap <LocalLeader>f :execute ':Agg -w ' . expand('%:t')<CR>
 
 nnoremap <C-c> :Files<CR>
 nnoremap <C-m> :call fzf#vim#files(fnamemodify(findfile('CMakeLists.txt', ';'), ':h'))<CR>

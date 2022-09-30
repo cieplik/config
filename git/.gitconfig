@@ -47,6 +47,9 @@
 	name = cieplik
 	email = dcieplin@gmail.com
 
+[url "ssh://git@github.com"]
+	insteadOf = https://github.com
+
 [url "https://"]
 	insteadOf = git://
 
