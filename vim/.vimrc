@@ -45,6 +45,7 @@ try
   Plug 'lyuts/vim-rtags', {'for': ['c', 'cpp']}
   Plug 'cieplik/vim-rtags-callstack', {'for': ['c', 'cpp']}
   Plug 'MarcWeber/vim-addon-mw-utils'
+  Plug 'machakann/vim-highlightedyank'
   Plug 'matze/vim-ini-fold', {'for': 'dosini'}
   Plug 'mogelbrod/vim-jsonpath'
   Plug 'ojroques/vim-oscyank', {'branch': 'main'}
