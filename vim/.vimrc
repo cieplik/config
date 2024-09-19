@@ -217,6 +217,8 @@ endfor
 " vim-fugitive {{{1
 nnoremap <LocalLeader>m :Gvdiffsplit origin/master:%<CR>
 
+command! -range GOSCBrowse redir @a | '<,'>GBrowse! | redir END | OSCYankRegister a
+
 
 " fzf.vim {{{1
 let g:fzf_action = {'ctrl-s': 'split', 'ctrl-t': 'tab split', 'ctrl-v': 'vsplit'}
@@ -276,8 +278,9 @@ let g:vim_json_syntax_conceal = 0
 
 " vim-oscyank {{{1
 
-vnoremap <LocalLeader>o :OSCYank<CR>
-nmap <LocalLeader>o <Plug>OSCYank
+nmap <LocalLeader>y <Plug>OSCYankOperator
+nmap <LocalLeader>yy <LocalLeader>y_
+vmap <LocalLeader>y <Plug>OSCYankVisual
 
 
 " vim-polyglot {{{1
